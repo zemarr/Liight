@@ -1,0 +1,889 @@
+// Override default variables before the import
+$body-primary-bg: #8f8f8f;
+$body-secondary-bg: #ffffff;
+$button-primary: #e2aa01;
+$primary-font-color: #252737;
+$auth-font-color: #54965a;
+$form-assist-font-color: #6ccce1;
+$prefixes: -webkit-, -moz-, -o-, "";
+$parag-font: "Product Sans", sans-serif;
+
+// RESETS
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@mixin no-margin {
+  margin: 0;
+}
+@mixin no-padding {
+  padding: 0;
+}
+@mixin flex-center-align {
+  display: flex !important;
+  align-items: center;
+}
+@mixin flex-justify-center {
+  display: flex !important;
+  justify-content: center;
+}
+@mixin flex-justify-self-center {
+  display: flex !important;
+  align-self: center;
+  justify-self: center;
+}
+@mixin flex-space-between {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-space-evenly {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@mixin flex-end {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+}
+@mixin transition {
+  transition: all 0.4s;
+}
+@mixin background-image-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@mixin background-image-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@mixin heading-font {
+  font-family: $parag-font;
+  font-weight: 700;
+}
+@mixin p-font {
+  font-family: $parag-font;
+  font-weight: 400;
+}
+@mixin section-padding($size...) {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+@mixin flex-column-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin borderRadius($size...) {
+  @if length($size) == 1 {
+    @each $prefix in $prefixes {
+      #{$prefix}border-radius: $size;
+    }
+  } @else {
+    @include customBorderRadius($size...);
+  }
+}
+
+@mixin customBorderRadius(
+  $topLeft: 0,
+  $topRight: 0,
+  $bottomRight: 0,
+  $bottomLeft: 0
+) {
+  @each $prefix in $prefixes {
+    @if $prefix == "-moz-" {
+      @if $topLeft != 0 {
+        -moz-border-radius-topleft: $topLeft;
+      }
+      @if $topRight != 0 {
+        -moz-border-radius-topright: $topRight;
+      }
+      @if $bottomRight != 0 {
+        -moz-border-radius-bottomright: $bottomRight;
+      }
+      @if $bottomLeft != 0 {
+        -moz-border-radius-bottomleft: $bottomLeft;
+      }
+    } @else {
+      @if $topLeft != 0 {
+        #{$prefix}border-top-left-radius: $topLeft;
+      }
+      @if $topRight != 0 {
+        #{$prefix}border-top-right-radius: $topRight;
+      }
+      @if $bottomRight != 0 {
+        #{$prefix}border-bottom-right-radius: $bottomRight;
+      }
+      @if $bottomLeft != 0 {
+        #{$prefix}border-bottom-left-radius: $bottomLeft;
+      }
+    }
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+p {
+  @include p-font();
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-font();
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+// ::-webkit-scrollbar-track {
+//   // border-radius: 20px;
+// }
+
+::-webkit-scrollbar-thumb {
+  background: #0e1c27;
+  margin: 3px;
+}
+
+.App {
+  header {
+    height: 15vh;
+    background-color: #000000;
+    @include flex-center-align();
+    .container {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+main {
+  background-color: $body-primary-bg;
+}
+
+// #ffc107
+
+nav {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    @include no-margin();
+    @include no-padding();
+    li {
+      margin-right: 1rem;
+      &:last-child {
+        margin-left: 1rem;
+        margin-right: 0;
+      }
+      a {
+        color: $body-secondary-bg;
+        @include transition();
+        &:hover {
+          color: $button-primary;
+          text-decoration: none;
+          @include transition();
+        }
+        div {
+          @include flex-center-align();
+          font-weight: 600;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+  .topup-btn {
+    @include borderRadius(5px !important);
+    background-color: $button-primary;
+    color: $body-secondary-bg;
+    font-weight: 600;
+    border: none;
+    @include transition();
+    &:hover {
+      background-color: white;
+      color: $button-primary;
+      @include transition();
+    }
+  }
+}
+
+.logo-wrapper {
+  width: auto;
+  height: 80px;
+}
+
+#hero {
+  height: calc(100vh - 15vh);
+}
+
+.hero-carousel {
+  .slick-track {
+    height: 80vh;
+  }
+  .slick-prev {
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: #0000001a;
+    z-index: 200;
+    &::before {
+      content: none;
+      font-family: "slick";
+      font-size: 50px;
+      line-height: 1;
+      opacity: 0.75;
+      color: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .prev {
+      margin: 0 auto;
+      background-image: url(../arrowleft.svg);
+      @include background-image-contain();
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .slick-next {
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: #0000001a;
+    z-index: 200;
+    &::before {
+      content: none;
+      font-family: "slick";
+      font-size: 50px;
+      line-height: 1;
+      opacity: 0.75;
+      color: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .next {
+      margin: 0 auto;
+      background-image: url(../arrowright.svg);
+      @include background-image-contain();
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: 35px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    .slick-active {
+      button {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        cursor: pointer;
+        color: transparent;
+        border: 0;
+        outline: none;
+        background: transparent;
+        &::before {
+          font-family: "slick";
+          font-size: 10px;
+          line-height: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          content: "•";
+          text-align: center;
+          opacity: 0.75;
+          color: $button-primary;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+    }
+  }
+}
+
+.carousel-item {
+  @include flex-justify-center();
+  .slide1 {
+    background-image: url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  }
+  .slide2 {
+    background-image: url(../customersupport.svg);
+  }
+  .slide3 {
+    background-image: url(https://images.pexels.com/photos/45111/pexels-photo-45111.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+  }
+  .slide4 {
+    background-image: url(../shoppingcart.svg);
+  }
+  .slide1,
+  .slide2,
+  .slide3,
+  .slide4 {
+    @include background-image-cover();
+    height: 80vh;
+    width: 100vw;
+  }
+  h2 {
+    position: absolute;
+    top: 44%;
+    font-weight: 700;
+    font-size: 50px;
+    color: $button-primary;
+    background-color: #0000000d;
+  }
+}
+
+////////////// ABOUT /////////////////////
+
+.about {
+  height: calc(100vh - 5vh);
+  @include section-padding();
+  .section-heading {
+    border-radius: 10px;
+    width: fit-content;
+    background-color: #e2aa01;
+    font-weight: 900;
+    margin: 0 auto;
+  }
+  .cards-container {
+    text-align: center;
+    @include flex-column-align();
+    padding: 0 60px;
+  }
+  .cards {
+    margin: 6rem 0;
+    .icon {
+      background-color: $button-primary;
+      @include borderRadius(10px);
+      height: 70px;
+      width: 70px;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+    .all-day {
+      background-image: url(../247.svg);
+      @include background-image-cover();
+      @include flex-center-align();
+      height: 50px;
+      width: 50px;
+    }
+    .secure-payment {
+      background-image: url(../securepayment.svg);
+      @include background-image-cover();
+      @include flex-center-align();
+      height: 50px;
+      width: 50px;
+    }
+    .loan {
+      background-image: url(../paylater.svg);
+      @include background-image-cover();
+      @include flex-center-align();
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.service-provider {
+  // height: calc(100vh - 5vh);
+  @include section-padding();
+  .section-heading {
+    border-radius: 10px;
+    width: fit-content;
+    background-color: #e2aa01;
+    font-weight: 900;
+    margin: 0 auto;
+  }
+  .cards {
+    margin: 6rem 0;
+    .provider-container {
+      text-align: center;
+      @include flex-column-align();
+      @include borderRadius(10px);
+      background-color: $body-secondary-bg;
+      // padding: 20px;
+    }
+    .icon {
+      background-color: $button-primary;
+      @include borderRadius(10px);
+      height: 70px;
+      width: 70px;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+    .ie {
+      background-image: url(../ike.svg);
+      @include background-image-contain();
+      @include flex-center-align();
+      height: 130px;
+      width: 130px;
+    }
+    .ekedc {
+      background-image: url(../ekedc.svg);
+      @include background-image-contain();
+      @include flex-center-align();
+      height: 130px;
+      width: 130px;
+    }
+    .etransact {
+      background-image: url(../Etranzact.svg);
+      @include background-image-contain();
+      @include flex-center-align();
+      height: 130px;
+      width: 130px;
+    }
+    .interswitch {
+      background-image: url(../Interswitch.svg);
+      @include background-image-contain();
+      @include flex-center-align();
+      height: 130px;
+      width: 130px;
+    }
+  }
+}
+
+.get-started {
+  @include section-padding();
+  p {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 18px;
+  }
+  .download-appstore {
+    @include flex-space-evenly();
+    .googleplay {
+      background-image: url(../googleplay.png);
+      @include background-image-contain();
+      width: 300px;
+      height: 80px;
+    }
+    .appstore {
+      background-image: url(../appstore.png);
+      @include background-image-contain();
+      width: 300px;
+      height: 120px;
+    }
+  }
+}
+
+///////////////// LOGIN ///////////////
+
+.login {
+  height: 100vh;
+  background-image: url(../loginbackground.svg);
+  @include background-image-cover();
+  .row {
+    height: 100%;
+  }
+  .container {
+    height: 100%;
+  }
+  .col-md-6,
+  .col-md-12 {
+    height: fit-content;
+    position: relative;
+    margin: 0 auto;
+    top: 100px;
+  }
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 80px 60px;
+    // border: solid 1px $button-primary;
+    box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    @include borderRadius(10px);
+  }
+  .form-heading {
+    height: 50px;
+    @include flex-space-between();
+    h2 {
+      @include heading-font();
+      color: $primary-font-color;
+      margin: 0;
+    }
+  }
+  form {
+    padding-top: 15px;
+    .form-assist {
+      @include flex-space-between();
+      button {
+        @include p-font();
+        border: none;
+        background-color: transparent;
+        font-size: 17px;
+        color: $form-assist-font-color;
+      }
+    }
+  }
+  .form-group {
+    input {
+      box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+    }
+  }
+
+  .finish {
+    padding-top: 20px;
+    @include flex-end();
+    .signin-btn {
+      @include p-font();
+      background-color: $auth-font-color;
+      font-weight: 600;
+      font-size: 18px;
+      border: none;
+      color: $body-secondary-bg;
+      @include borderRadius(10px);
+    }
+    .signup-btn {
+      margin-left: 15px;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 18px;
+      color: $primary-font-color;
+      box-shadow: none;
+    }
+  }
+
+  .exit {
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    &:focus {
+      outline: none;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-image: url(../close.svg);
+      @include background-image-contain();
+    }
+  }
+}
+
+///////////////// SIGN UP ///////////////
+
+.signup {
+  height: 100vh;
+  background-image: url(../loginbackground.svg);
+  @include background-image-cover();
+  .row {
+    height: 100%;
+    .col-md-12 {
+      height: fit-content;
+      position: relative;
+      margin: 0 auto;
+      top: 30px;
+    }
+  }
+  .container {
+    height: 100%;
+  }
+
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 80px 60px;
+    // border: solid 1px $button-primary;
+    box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    @include borderRadius(10px);
+  }
+  .form-heading {
+    height: 50px;
+    @include flex-space-between();
+    h2 {
+      @include heading-font();
+      color: $primary-font-color;
+      margin: 0;
+    }
+  }
+  form {
+    padding-top: 15px;
+    .form-assist {
+      @include flex-space-between();
+      button {
+        @include p-font();
+        border: none;
+        background-color: transparent;
+        font-size: 17px;
+        color: $form-assist-font-color;
+      }
+    }
+  }
+  .form-group {
+    input {
+      box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+    }
+    .category {
+      @include flex-space-between();
+      justify-content: space-around;
+    }
+  }
+
+  .exit {
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    &:focus {
+      outline: none;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-image: url(../close.svg);
+      @include background-image-contain();
+    }
+  }
+  .finish {
+    padding-top: 20px;
+    @include flex-end();
+    .signin-btn {
+      @include p-font();
+      background-color: $auth-font-color;
+      font-weight: 600;
+      font-size: 18px;
+      border: none;
+      color: $body-secondary-bg;
+      @include borderRadius(10px);
+    }
+    .signup-btn {
+      margin-left: 15px;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 18px;
+      color: $primary-font-color;
+      box-shadow: none;
+    }
+  }
+}
+
+// TOPUP ////////////////////
+
+.quicktopup {
+  height: 100vh;
+  background-image: url(../topupbackground.svg);
+  @include background-image-cover();
+  background-position: 0 0 !important;
+  .row {
+    height: 100%;
+  }
+  .container {
+    height: 100%;
+  }
+  .col-md-6,
+  .col-md-12 {
+    height: fit-content;
+    position: relative;
+    margin: 0 auto;
+    top: 80px;
+  }
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 80px 60px;
+    // border: solid 1px $button-primary;
+    box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    @include borderRadius(10px);
+  }
+  .form-heading {
+    height: 50px;
+    @include flex-space-between();
+    h2 {
+      @include heading-font();
+      color: $primary-font-color;
+      margin: 0;
+    }
+  }
+  form {
+    padding-top: 15px;
+    .form-assist {
+      @include flex-space-between();
+      button {
+        @include p-font();
+        border: none;
+        background-color: transparent;
+        font-size: 17px;
+        color: $form-assist-font-color;
+      }
+    }
+  }
+  .form-group {
+    input {
+      box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+    }
+  }
+
+  .finish {
+    padding-top: 20px;
+    @include flex-end();
+    .signin-btn {
+      @include p-font();
+      background-color: $auth-font-color;
+      font-weight: 600;
+      font-size: 18px;
+      border: none;
+      color: $body-secondary-bg;
+      @include borderRadius(10px);
+    }
+    .signup-btn {
+      margin-left: 15px;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 18px;
+      color: $primary-font-color;
+      box-shadow: none;
+    }
+  }
+
+  .exit {
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    &:focus {
+      outline: none;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-image: url(../close.svg);
+      @include background-image-contain();
+    }
+  }
+}
+
+// FOOTER ////////////////////
+
+.footer {
+  background-color: black;
+  @include section-padding();
+  position: relative;
+  .banner {
+    div {
+      background-image: url(../emblem.png);
+      @include background-image-cover();
+      height: 170px;
+      width: auto;
+    }
+    p {
+      color: $body-secondary-bg;
+    }
+  }
+  .head {
+    @include flex-column-align();
+    margin-top: 60px;
+    h4 {
+      font-size: 22px;
+      font-weight: 600;
+      color: $body-secondary-bg;
+    }
+  }
+  button {
+    border: none;
+    background-color: transparent;
+    color: $body-secondary-bg;
+  }
+  .support {
+    display: inline-block;
+    position: fixed;
+    right: 50px;
+    bottom: 60px;
+    button {
+      border: solid 3px transparent;
+      background-color: transparent;
+      background-image: url(../support.svg);
+      @include background-image-cover();
+      height: 60px;
+      width: 60px;
+      @include transition();
+      &:focus {
+        outline: transparent;
+        @include borderRadius(50%);
+        border: solid 3px $body-secondary-bg;
+        padding: 0.5px;
+        transition: all 0.2s;
+      }
+    }
+  }
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  .inner-popups {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    border-radius: 20px;
+    background: white;
+  }
+}
+
+//////////////////// MEDIA QUERY //////////////////
+
+// Import Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap.scss";
