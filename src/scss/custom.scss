@@ -859,6 +859,17 @@ nav {
       }
     }
   }
+  .back-to-top {
+    // display: inline-block;
+    position: fixed;
+    left: 50px;
+    bottom: 60px;
+    color: white;
+    transition: .3s all;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .popup {

@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import Carousel from "../components/Carousel";
 import Heading from "../components/Heading";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Home = () => {
   return (
@@ -93,7 +94,9 @@ const Home = () => {
 
             <section className="get-started container">
               <Heading>
-                <h3 className="section-heading p-2">Get started with Liight today</h3>
+                <h3 className="section-heading p-2">
+                  Get started with Liight today
+                </h3>
               </Heading>
               <p>Download and start buying electricity with ease.</p>
               <div className="download-appstore">
@@ -148,6 +151,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <ScrollToTop />
           <div className="support">
             <button className="customer-support"></button>
           </div>

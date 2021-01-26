@@ -8,7 +8,7 @@ import Button from "./Button";
 
 const Header = () => {
   return (
-    <header>
+    <header id="header">
       <div className="container">
         <div className="logo-wrapper">
           <Link to="/">
