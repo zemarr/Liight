@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import logoImage from "../emblem.png";
 import demoprofileimage from "../demoprofileimage.svg";
-import Button from "./Button";
+// import Button from "./Button";
 
 const Header = () => {
   return (
@@ -18,16 +18,21 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/login">
-                <div>
-                  <img src={demoprofileimage} width="30px" alt="Log in" />
-                  &nbsp;&nbsp;LOG IN
-                </div>
+              <Link to="/loan">
+                LOAN
               </Link>
             </li>
             <li>
               <Link to="/topup">
-                <Button className="topup-btn p-2">QUICK TOP-UP/LOAN</Button>
+                QUICK TOP-UP
+              </Link>
+            </li>
+            <li>
+              <Link to="/login">
+                <div>
+                  <img src={demoprofileimage} width="30px" alt="Log in" />
+                  &nbsp;&nbsp;Log in
+                </div>
               </Link>
             </li>
           </ul>

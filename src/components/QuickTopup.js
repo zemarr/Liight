@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Heading from "../components/Heading";
-import Button from "../components/Button";
+import Heading from "./Heading";
+import Button from "./Button";
 
 const QuickTopup = () => {
   return (

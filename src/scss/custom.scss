@@ -1,12 +1,13 @@
 // Override default variables before the import
 $body-primary-bg: #8f8f8f;
 $body-secondary-bg: #ffffff;
-$button-primary: #e2aa01;
+$button-primary: #fbca1b;
+$button-primary-darker: #e2aa01;
 $primary-font-color: #252737;
 $auth-font-color: #54965a;
 $form-assist-font-color: #6ccce1;
 $prefixes: -webkit-, -moz-, -o-, "";
-$parag-font: "Product Sans", sans-serif;
+$font-family: "Roboto", sans-serif;
 
 // RESETS
 .container-fluid {
@@ -43,10 +44,21 @@ $parag-font: "Product Sans", sans-serif;
   align-items: center;
   justify-content: space-evenly;
 }
+@mixin flex-space-around {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-around;
+}
 @mixin flex-end {
   display: flex !important;
   align-items: center;
   justify-content: flex-end;
+}
+@mixin flex-column-center {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 @mixin transition {
   transition: all 0.4s;
@@ -62,11 +74,11 @@ $parag-font: "Product Sans", sans-serif;
   background-repeat: no-repeat;
 }
 @mixin heading-font {
-  font-family: $parag-font;
+  font-family: $font-family;
   font-weight: 700;
 }
 @mixin p-font {
-  font-family: $parag-font;
+  font-family: $font-family;
   font-weight: 400;
 }
 @mixin section-padding($size...) {
@@ -156,6 +168,8 @@ h6 {
 }
 
 .App {
+  font-size: 14px;
+  transition: 0.3s all;
   header {
     height: 15vh;
     background-color: #000000;
@@ -169,10 +183,8 @@ h6 {
 }
 
 main {
-  background-color: $body-primary-bg;
+  background-color: #f5f6fa;
 }
-
-// #ffc107
 
 nav {
   ul {
@@ -184,22 +196,28 @@ nav {
     @include no-padding();
     li {
       margin-right: 1rem;
-      &:last-child {
-        margin-left: 1rem;
-        margin-right: 0;
-      }
       a {
         color: $body-secondary-bg;
-        @include transition();
+        font-weight: 400;
+        margin: 10px;
+        // @include transition();
         &:hover {
           color: $button-primary;
           text-decoration: none;
-          @include transition();
+          // @include transition();
         }
         div {
           @include flex-center-align();
-          font-weight: 600;
-          font-size: 17px;
+          font-size: 15px;
+          font-weight: 400;
+          padding: 5px 10px 5px 5px;
+          border-radius: 20px;
+          @include transition();
+          // font-size: 17px;
+          &:hover {
+            @include transition();
+            background-color: rgba(255, 255, 255, 0.158);
+          }
         }
       }
     }
@@ -208,13 +226,39 @@ nav {
     @include borderRadius(5px !important);
     background-color: $button-primary;
     color: $body-secondary-bg;
-    font-weight: 600;
+    font-weight: 500;
     border: none;
+    box-shadow: 0px 3px 10px -7px #ffffff;
+    -webkit-box-shadow: 0px 3px 10px -7px #ffffff;
+    -moz-box-shadow: 0px 3px 10px -7px #ffffff;
     @include transition();
     &:hover {
       background-color: white;
-      color: $button-primary;
+      color: $button-primary-darker;
       @include transition();
+      box-shadow: 0px 5px 10px -7px #ffbf00;
+      -webkit-box-shadow: 0px 5px 10px -7px #ffbf00;
+      -moz-box-shadow: 0px 5px 10px -7px #ffbf00;
+    }
+  }
+  .loan-btn {
+    @include borderRadius(5px !important);
+    padding: 0 20px;
+    background-color: $button-primary;
+    color: $body-secondary-bg;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0px 3px 10px -7px #ffffff;
+    -webkit-box-shadow: 0px 3px 10px -7px #ffffff;
+    -moz-box-shadow: 0px 3px 10px -7px #ffffff;
+    @include transition();
+    &:hover {
+      background-color: white;
+      color: $button-primary-darker;
+      @include transition();
+      box-shadow: 0px 5px 10px -7px #ffbf00;
+      -webkit-box-shadow: 0px 5px 10px -7px #ffbf00;
+      -moz-box-shadow: 0px 5px 10px -7px #ffbf00;
     }
   }
 }
@@ -281,7 +325,7 @@ nav {
     border: none;
     outline: none;
     background: #0000001a;
-    z-index: 200;
+    // z-index: 200;
     &::before {
       content: none;
       font-family: "slick";
@@ -365,13 +409,13 @@ nav {
     height: 80vh;
     width: 100vw;
   }
-  h2 {
+  h4 {
     position: absolute;
     top: 44%;
     font-weight: 700;
     font-size: 50px;
     color: $button-primary;
-    background-color: #0000000d;
+    // background-color: #0000000d;
   }
 }
 
@@ -383,7 +427,7 @@ nav {
   .section-heading {
     border-radius: 10px;
     width: fit-content;
-    background-color: #e2aa01;
+    background-color: $button-primary;
     font-weight: 900;
     margin: 0 auto;
   }
@@ -432,18 +476,26 @@ nav {
   .section-heading {
     border-radius: 10px;
     width: fit-content;
-    background-color: #e2aa01;
-    font-weight: 900;
+    // background-color: #e2aa01;
+    font-weight: 600;
     margin: 0 auto;
+  }
+  .col-md-3 {
+    @include flex-justify-center();
   }
   .cards {
     margin: 6rem 0;
     .provider-container {
+      padding: 0 1.5rem;
       text-align: center;
-      @include flex-column-align();
       @include borderRadius(10px);
       background-color: $body-secondary-bg;
-      // padding: 20px;
+      height: 80px;
+      width: 150px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
     .icon {
       background-color: $button-primary;
@@ -457,34 +509,35 @@ nav {
       background-image: url(../ike.svg);
       @include background-image-contain();
       @include flex-center-align();
-      height: 130px;
-      width: 130px;
+      height: 100%;
+      width: 70px;
     }
     .ekedc {
       background-image: url(../ekedc.svg);
       @include background-image-contain();
       @include flex-center-align();
-      height: 130px;
-      width: 130px;
+      height: 100%;
+      width: 90px;
     }
     .etransact {
       background-image: url(../Etranzact.svg);
       @include background-image-contain();
       @include flex-center-align();
-      height: 130px;
-      width: 130px;
+      height: 100%;
+      width: 120px;
     }
     .interswitch {
       background-image: url(../Interswitch.svg);
       @include background-image-contain();
       @include flex-center-align();
-      height: 130px;
-      width: 130px;
+      height: 100%;
+      width: 150px;
     }
   }
 }
 
 .get-started {
+  @include flex-column-center();
   @include section-padding();
   p {
     text-align: center;
@@ -492,18 +545,11 @@ nav {
     font-size: 18px;
   }
   .download-appstore {
-    @include flex-space-evenly();
-    .googleplay {
-      background-image: url(../googleplay.png);
-      @include background-image-contain();
-      width: 300px;
-      height: 80px;
-    }
-    .appstore {
-      background-image: url(../appstore.png);
-      @include background-image-contain();
-      width: 300px;
-      height: 120px;
+    width: 340px;
+    height: 60px;
+    @include flex-space-around();
+    img {
+      height: 43px;
     }
   }
 }
@@ -813,59 +859,151 @@ nav {
   @include section-padding();
   position: relative;
   .banner {
-    div {
-      background-image: url(../emblem.png);
-      @include background-image-cover();
-      height: 170px;
-      width: auto;
-    }
+    padding-top: 30px;
+    // img {
+    //   margin-bottom: 5px;
+    // }
     p {
       color: $body-secondary-bg;
+      font-size: smaller;
     }
   }
   .head {
     @include flex-column-align();
+    align-items: unset;
     margin-top: 60px;
     h4 {
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 500;
       color: $body-secondary-bg;
     }
   }
+  .social-media {
+    @include flex-justify-center();
+    justify-content: unset;
+    button {
+      margin-right: 15px;
+    }
+  }
   button {
+    text-align: left;
     border: none;
     background-color: transparent;
     color: $body-secondary-bg;
+    font-family: $font-family;
+    padding: 5px 0;
   }
   .support {
     display: inline-block;
     position: fixed;
-    right: 50px;
-    bottom: 60px;
+    right: 20px;
+    bottom: 20px;
+    @include borderRadius(50px);
     button {
-      border: solid 3px transparent;
+      @include flex-justify-center();
+      @include flex-center-align();
+      border: none;
+      border-radius: 50%;
+      box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.349);
+      -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.349);
+      -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.349);
       background-color: transparent;
-      background-image: url(../support.svg);
-      @include background-image-cover();
+      transition: all 0.2s;
       height: 60px;
       width: 60px;
-      @include transition();
+      .exitChat {
+        padding: 5px;
+        background-color: $button-primary;
+        border-radius: 50px;
+      }
       &:focus {
-        outline: transparent;
-        @include borderRadius(50%);
-        border: solid 3px $body-secondary-bg;
+        outline: none;
+        border: none;
         padding: 0.5px;
         transition: all 0.2s;
       }
     }
   }
+  .chatbox {
+    overflow: hidden;
+    position: absolute;
+    background-color: $body-secondary-bg;
+    right: 0;
+    width: 380px;
+    height: 580px;
+    transform: translateY(-650px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    @include borderRadius(10px);
+    box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.349);
+    -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.349);
+    -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.349);
+    .head {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row !important;
+      align-items: center;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: $button-primary;
+      color: $body-secondary-bg;
+      border: none;
+    }
+
+    // .body {
+    // }
+    // .chat-bubble {
+    // }
+    .textbox {
+      @include flex-end();
+      border: none;
+      form {
+        @include flex-justify-center();
+        width: 100%;
+        input {
+          border: none;
+          background-color: whitesmoke;
+          color: black;
+          width: 100%;
+          padding: 10px 15px;
+          @include borderRadius(10px);
+          &:focus {
+            outline: none;
+            background-color: rgb(231, 231, 231);
+          }
+        }
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-color: $button-primary;
+        margin-left: 15px;
+        transition: none;
+        @include borderRadius(50%);
+        padding: 0 15px;
+        color: black;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
   .back-to-top {
-    // display: inline-block;
+    @include flex-column-align();
     position: fixed;
-    left: 50px;
-    bottom: 60px;
-    color: white;
-    transition: .3s all;
+    right: 15px;
+    bottom: 160px;
+    color: $primary-font-color;
+    font-weight: 600;
+    transition: 0.3s all;
     &:hover {
       cursor: pointer;
     }
