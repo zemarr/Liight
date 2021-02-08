@@ -1,4 +1,4 @@
-import React, { useContext } from "react"; // import useContext
+import React, { useContext, useState } from "react"; // import useContext
 
 import chatIcon from "../support.svg";
 import closeChat from "../closeChat.svg";
@@ -30,16 +30,16 @@ const ChatWidget = () => {
           <img src={chatIcon} alt="exit" height="60px" />
         )}
       </button>
-      {showWidget ? <ChatBox /> : null}
+      {showWidget ? <ChatBox className="animate__animated animate__slideInUp animate__faster" /> : null}
     </>
   );
 };
 
-export const ChatBox = () => {
+export const ChatBox = (props) => {
   const dummyData = [
     {
-      name: "user007",
-      message: "Got any issues? we are here to help.",
+      name: "Admin",
+      message: "Got any issues? We are here to help.",
     },
   ];
 
@@ -53,57 +53,42 @@ export const ChatBox = () => {
   // console.log("Full date:", getDay, getMonth, getYear);
   // console.log("Full time:", getHours, getMinutes);
 
-  //   const [message, setMessage] = useState();
-
-  //   const textInputHandler = (e) => {
-  //     setMessage({
-  //       message: e.target.value,
-  //     });
-  //     console.log(message)
-  //   };
-
   const submitHandler = (e) => {
     e.preventDefault();
     e.target.value = !e.target.value;
     console.log("Submitted");
   };
 
-  // const handleKeyPress = (e) => {
-  //   e.preventDefault();
-  //   if (e.key === "Enter") {
-  //     submitHandler();
-  //   }
-  // };
 
   return (
     <>
-      <ul className="chatbox list-group">
-        <li className="head list-group-item">
-          <img src={customercare} height="70px" alt="" />
+      <div className={`chatbox list-group ${props.className}`}>
+        <div className="head list-group-item">
+          <img src={customercare} height="60px" alt="" />
           <h6>Chat with Customer Care</h6>
-        </li>
-        <li className="body list-group-item">
+        </div>
+        <div className="body list-group-item">
           <span className="current-date"></span>
-          <ul>
+          <div>
             {/* Chat bubble item */}
             {dummyData.map((data, i) => {
               console.log(data);
               return (
-                <li key={i}>
-                  <div className="chat-bubble">
-                    <span>{data.name}</span>
+                <div key={i}>
+                  <div className="chat-bubble animate__animated animate__jackInTheBox animate__faster animate__delay-1s">
+                    <span className="alias">{data.name}</span>
                     <br />
-                    <span>{data.message}</span>
+                    <span className="message">{data.message}</span>
                   </div>
 
                   <span className="current-time"></span>
-                </li>
+                </div>
               );
             })}
             {/* Chat bubble item */}
-          </ul>
-        </li>
-        <li className="textbox list-group-item">
+          </div>
+        </div>
+        <div className="textbox list-group-item">
           <form onSubmit={submitHandler}>
             <input
               type="text"
@@ -115,8 +100,8 @@ export const ChatBox = () => {
               <img src={send} height="25px" alt="" onClick={submitHandler} />
             </button>
           </form>
-        </li>
-      </ul>
+        </div>
+      </div>
     </>
   );
 };

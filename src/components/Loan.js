@@ -7,10 +7,10 @@ import Button from "./Button";
 const Loan = () => {
   return (
     <>
-      <section className="loan">
+      <section className="loan animate__animated animate__fadeIn animate__faster">
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-6 animate__animated animate__fadeIn animate__fast">
               <div className="form-container">
                 <div className="form-heading">
                   <Heading>

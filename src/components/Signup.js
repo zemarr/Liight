@@ -7,10 +7,10 @@ import Button from "../components/Button";
 const Signup = () => {
   return (
     <>
-      <section className="signup">
+      <section className="signup animate__animated animate__fadeIn animate__faster">
         <div className="container">
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-8 animate__animated animate__fadeIn animate__fast">
               <div className="form-container">
                 <div className="form-heading">
                   <Heading>

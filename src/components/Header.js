@@ -35,9 +35,19 @@ const Header = () => {
   }, []);
   return (
     // Here we will refer to the scroll state and make use of the data to add and remove our active className
-    <header className={scroll ? "header active" : "header"}>
+    // There are also animation classes included for smoother transitioning and aesthetics
+    <header
+      className={
+        scroll
+          ? "header active animate__animated animate__slideInDown"
+          : "header"
+      }
+    >
       <div className="container">
-        <div className="logo-wrapper">
+        <div
+          className="logo-wrapper animate__animated animate__fadeInLeft"
+          data-wow-delay=".1s"
+        >
           <Link to="/">
             <Logo logoImageHandler={logoImage} />
           </Link>
@@ -46,13 +56,13 @@ const Header = () => {
         <nav className={active ? "active" : ""}>
           <div className="container">
             <ul>
-              <li>
+              <li className=" animate__animated animate__fadeIn">
                 <Link to="/loan">LOAN</Link>
               </li>
-              <li>
+              <li className=" animate__animated animate__fadeIn">
                 <Link to="/topup">QUICK TOP-UP</Link>
               </li>
-              <li>
+              <li className=" animate__animated animate__fadeIn">
                 <Link to="/login">
                   <span>
                     {/* Also used the hamburger active state to toggle the icon for the login button */}
@@ -69,7 +79,10 @@ const Header = () => {
           </div>
         </nav>
         {/* We use the helper function 'toggleActiveNav' to toggle between hamburger icon and close hamburger icon */}
-        <div className="hamburger" onClick={toggleActiveNav}>
+        <div
+          className="hamburger wow animate__animated animate__fadeIn animate__delay-1s"
+          onClick={toggleActiveNav}
+        >
           {active ? (
             <img src={hamburgerClose} alt="" width="40px" height="20px" />
           ) : (

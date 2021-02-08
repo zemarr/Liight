@@ -18,7 +18,10 @@ import instagram from "../instagram.svg";
 import ChatWidget from "../components/ChatWidget";
 import { WidgetContextProvider } from "../context/WidgetContext";
 
+import WOW from "wowjs";
+
 const Home = () => {
+  new WOW.WOW().init();
   // console.log(document.body.clientWidth) // get the width of the website body
   // const [isMobile, setIsMobile] = useState();
 
@@ -41,7 +44,7 @@ const Home = () => {
   return (
     <>
       <Layout>
-        <section id="hero">
+        <section id="hero" className="wow animate__animated animate__fadeIn">
           <Carousel />
         </section>
 
@@ -146,9 +149,21 @@ const Home = () => {
                 </h4>
               </Heading>
               <p>Download and start buying electricity with ease.</p>
-              <div className="download-appstore">
-                <img src={GooglePlay} alt="App on Googleplay" />
-                <img src={AppStore} alt="App on Appstore" />
+              <div className="download-appstore wow animate__animated animate__fadeIn animate__delay-1s">
+                <img
+                  src={GooglePlay}
+                  alt="App on Googleplay"
+                  className="wow animate__animated animate__jello"
+                  data-wow-offset="50"
+                  data-wow-delay="1s"
+                />
+                <img
+                  src={AppStore}
+                  alt="App on Appstore"
+                  className="wow animate__animated animate__jello"
+                  data-wow-offset="50"
+                  data-wow-delay="1.25s"
+                />
               </div>
             </section>
           </div>

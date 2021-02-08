@@ -7,7 +7,7 @@ $primary-font-color: #252737;
 $auth-font-color: #54965a;
 $form-assist-font-color: #6ccce1;
 $alt-navigation-color: #030119;
-$alt-navigation-color-transluscent: #03011975;
+// $alt-navigation-gradient:
 $prefixes: -webkit-, -moz-, -o-, "";
 $font-family: "Roboto", sans-serif;
 
@@ -92,6 +92,32 @@ $font-family: "Roboto", sans-serif;
   flex-direction: column;
   align-items: center;
 }
+@mixin gradientBackground {
+  background: #41295a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #2f0743,
+    #41295a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #2f0743,
+    #24103a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@mixin altGradientBackground {
+  background: #41295a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #2f0743,
+    #36204e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #2f0743,
+    #36204e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 @mixin borderRadius($size...) {
   @if length($size) == 1 {
@@ -156,6 +182,10 @@ h6 {
   @include heading-font();
 }
 
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -165,7 +195,8 @@ h6 {
 // }
 
 ::-webkit-scrollbar-thumb {
-  background: $alt-navigation-color;
+  // background: $alt-navigation-color;
+  @include altGradientBackground();
   margin: 3px;
 }
 
@@ -174,18 +205,15 @@ h6 {
   transition: 0.3s all;
   overflow: hidden;
   .header {
-    height: 15vh;
-    background-color: $alt-navigation-color;
-    z-index: 300;
-    width: 100%;
-    transition: 0.5s ease-in-out;
+    height: 13vh;
+    // background-color: $alt-navigation-color;
+    @include gradientBackground();
+    z-index: 500;
     &.active {
       width: 100%;
-      height: 15vh;
+      height: 13vh;
       position: fixed;
-      z-index: 300;
-      background-color: $alt-navigation-color;
-      transition: 0.5s ease-in-out;
+      z-index: 500;
     }
     @include flex-center-align();
     .container {
@@ -292,16 +320,16 @@ nav {
 
 .logo-wrapper {
   width: auto;
-  height: 80px;
+  height: 60px;
 }
 
 #hero {
-  height: calc(100vh - 15vh);
+  height: calc(100vh - 12vh);
 }
 
 .hero-carousel {
   .slick-track {
-    height: 80vh;
+    height: calc(100vh - 12vh);
   }
   .slick-prev {
     line-height: 0;
@@ -380,6 +408,7 @@ nav {
     margin: 0;
     list-style: none;
     text-align: center;
+    opacity: 0;
     .slick-active {
       button {
         font-size: 0;
@@ -419,30 +448,30 @@ nav {
   .slide1 {
     background-image: url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     @include background-image-cover();
-    height: 80vh;
+    height: calc(100vh - 16vh);
     width: 100vw;
   }
   .slide2 {
     background-image: url(../247.jpg);
     @include background-image-cover();
-    height: 80vh;
+    height: calc(100vh - 16vh);
     width: 100vw;
   }
   .slide3 {
     background-image: url(https://images.pexels.com/photos/45111/pexels-photo-45111.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
     @include background-image-cover();
-    height: 80vh;
+    height: calc(100vh - 16vh);
     width: 100vw;
   }
   .slide4 {
     background-image: url(../shoppingcart.svg);
     @include background-image-cover();
-    height: 80vh;
+    height: calc(100vh - 16vh);
     width: 100vw;
   }
   h4 {
     position: absolute;
-    top: 44%;
+    top: 46%;
     font-weight: 700;
     font-size: 50px;
     color: $button-primary;
@@ -982,7 +1011,8 @@ nav {
 // FOOTER ////////////////////
 
 .footer {
-  background-color: $alt-navigation-color;
+  // background-color: $alt-navigation-color;
+  @include altGradientBackground();
   @include section-padding();
   position: relative;
   .banner {
@@ -1016,6 +1046,7 @@ nav {
     background-color: transparent;
     color: $body-secondary-bg;
     font-family: $font-family;
+    font-weight: 300;
     padding: 5px 0;
     &:focus {
       outline: none !important;
@@ -1058,6 +1089,7 @@ nav {
     position: absolute;
     background-color: $body-secondary-bg;
     right: 0;
+    bottom: 70px;
     width: 300px;
     height: 510px;
     transform: translateY(-580px);
@@ -1091,8 +1123,19 @@ nav {
       border-bottom: 0.5px solid #0000000d;
     }
     .chat-bubble {
-      border: solid 1px green;
+      // border: solid 1px green;
       margin: 5px 0;
+      color: white;
+      @include altGradientBackground();
+      @include borderRadius(10px);
+      box-shadow: 0px 6px 11px -7px rgba(0, 0, 0, 0.349);
+      -webkit-box-shadow: 0px 6px 11px -7px rgba(0, 0, 0, 0.349);
+      -moz-box-shadow: 0px 6px 11px -7px rgba(0, 0, 0, 0.349);
+      padding: 1rem;
+      .alias {
+        color: $button-primary-darker;
+        font-weight: 600;
+      }
     }
     .textbox {
       @include flex-end();
@@ -1137,10 +1180,11 @@ nav {
   .back-to-top {
     @include flex-column-align();
     position: fixed;
-    right: 15px;
+    right: 7px;
     bottom: 160px;
     color: $primary-font-color;
     font-weight: 600;
+    font-size: 13px;
     transition: 0.3s all;
     &:hover {
       cursor: pointer;
@@ -1198,6 +1242,14 @@ nav {
   }
 }
 
+@media only screen and (max-width: 575px) {
+  .about {
+    .cards-container {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   /* Styles here */
   .hamburger {
@@ -1212,7 +1264,9 @@ nav {
     top: 90px;
     z-index: 300;
     opacity: 0;
-    background-color: black;
+    // background-color: black;
+
+    @include gradientBackground();
     transition: 0.1s all;
     &.active {
       display: flex !important;
@@ -1220,8 +1274,11 @@ nav {
       overflow: hidden;
       position: absolute;
       right: 0px;
-      top: 14vh;
-      background-color: $alt-navigation-color;
+      top: 12vh;
+      padding: 1rem 0;
+      // background-color: $alt-navigation-color;
+
+      @include altGradientBackground();
       z-index: 200;
       opacity: 1;
       transition: 0.1s all;
@@ -1321,6 +1378,35 @@ nav {
   .loan {
     .col-md-6 {
       padding: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  p {
+    font-size: 14px;
+  }
+  .get-started {
+    p {
+      font-size: 14px;
+    }
+  }
+  .service-provider,
+  .about {
+    .section-heading {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .get-started {
+    .download-appstore {
+      @include flex-space-evenly();
+      img {
+        height: 35px;
+      }
     }
   }
 }

@@ -26,7 +26,7 @@ const ScrollToTop = () => {
   return (
     <>
       {visible && (
-        <div className="back-to-top" onClick={scrollTopHandler}>
+        <div className="back-to-top animate__animated animate__fadeIn animate__fast" onClick={scrollTopHandler}>
           <img src={caretUp} height="15px" alt="Back to Top" />
           Back to Top
         </div>
