@@ -1265,7 +1265,6 @@ nav {
     z-index: 300;
     opacity: 0;
     // background-color: black;
-
     @include gradientBackground();
     transition: 0.1s all;
     &.active {
@@ -1274,10 +1273,9 @@ nav {
       overflow: hidden;
       position: absolute;
       right: 0px;
-      top: 12vh;
+      top: 15vh;
       padding: 1rem 0;
       // background-color: $alt-navigation-color;
-
       @include altGradientBackground();
       z-index: 200;
       opacity: 1;
