@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"; // import useContext
+import React, { useContext } from "react"; // import useContext
 
 import chatIcon from "../support.svg";
 import closeChat from "../closeChat.svg";
@@ -30,7 +30,9 @@ const ChatWidget = () => {
           <img src={chatIcon} alt="exit" height="60px" />
         )}
       </button>
-      {showWidget ? <ChatBox className="animate__animated animate__slideInUp animate__faster" /> : null}
+      {showWidget ? (
+        <ChatBox className="animate__animated animate__slideInUp animate__faster" />
+      ) : null}
     </>
   );
 };
@@ -59,7 +61,6 @@ export const ChatBox = (props) => {
     console.log("Submitted");
   };
 
-
   return (
     <>
       <div className={`chatbox list-group ${props.className}`}>
@@ -72,7 +73,7 @@ export const ChatBox = (props) => {
           <div>
             {/* Chat bubble item */}
             {dummyData.map((data, i) => {
-              console.log(data);
+              // console.log(data);
               return (
                 <div key={i}>
                   <div className="chat-bubble animate__animated animate__jackInTheBox animate__faster animate__delay-1s">

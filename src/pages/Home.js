@@ -18,10 +18,10 @@ import instagram from "../instagram.svg";
 import ChatWidget from "../components/ChatWidget";
 import { WidgetContextProvider } from "../context/WidgetContext";
 
-import WOW from "wowjs";
+
 
 const Home = () => {
-  new WOW.WOW().init();
+  
   // console.log(document.body.clientWidth) // get the width of the website body
   // const [isMobile, setIsMobile] = useState();
 

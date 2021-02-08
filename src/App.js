@@ -9,11 +9,16 @@ import Signup from "./components/Signup";
 import { PopupContextProvider } from "./context/PopupContext";
 import Loan from "./components/Loan";
 
+import WOW from "wowjs";
+
 // We want the entire app to be able to subrscribe to App
 // Create AuthContext and set default values in App's state
 // create reducer hook to handle authentication logic
 
 const App = () => {
+  new WOW.WOW({
+    live: false,
+  }).init();
   return (
     <PopupContextProvider>
       <div className="App container-fluid">
