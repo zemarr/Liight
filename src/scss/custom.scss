@@ -6,6 +6,8 @@ $button-primary-darker: #e2aa01;
 $primary-font-color: #252737;
 $auth-font-color: #54965a;
 $form-assist-font-color: #6ccce1;
+$alt-navigation-color: #030119;
+$alt-navigation-color-transluscent: #03011975;
 $prefixes: -webkit-, -moz-, -o-, "";
 $font-family: "Roboto", sans-serif;
 
@@ -163,16 +165,28 @@ h6 {
 // }
 
 ::-webkit-scrollbar-thumb {
-  background: #0e1c27;
+  background: $alt-navigation-color;
   margin: 3px;
 }
 
 .App {
   font-size: 14px;
   transition: 0.3s all;
-  header {
+  overflow: hidden;
+  .header {
     height: 15vh;
-    background-color: #000000;
+    background-color: $alt-navigation-color;
+    z-index: 300;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+    &.active {
+      width: 100%;
+      height: 15vh;
+      position: fixed;
+      z-index: 300;
+      background-color: $alt-navigation-color;
+      transition: 0.5s ease-in-out;
+    }
     @include flex-center-align();
     .container {
       display: flex !important;
@@ -184,6 +198,21 @@ h6 {
 
 main {
   background-color: #f5f6fa;
+}
+
+.hamburger {
+  height: 30px;
+  // background-color: #c3c3c3;
+  // padding: 5px;
+  @include borderRadius(3px);
+  @include flex-center-align();
+  @include flex-justify-center();
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    transition: 0.1s all;
+  }
 }
 
 nav {
@@ -200,13 +229,11 @@ nav {
         color: $body-secondary-bg;
         font-weight: 400;
         margin: 10px;
-        // @include transition();
         &:hover {
           color: $button-primary;
           text-decoration: none;
-          // @include transition();
         }
-        div {
+        span {
           @include flex-center-align();
           font-size: 15px;
           font-weight: 400;
@@ -391,20 +418,24 @@ nav {
   @include flex-justify-center();
   .slide1 {
     background-image: url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    @include background-image-cover();
+    height: 80vh;
+    width: 100vw;
   }
   .slide2 {
-    background-image: url(../customersupport.svg);
+    background-image: url(../247.jpg);
+    @include background-image-cover();
+    height: 80vh;
+    width: 100vw;
   }
   .slide3 {
     background-image: url(https://images.pexels.com/photos/45111/pexels-photo-45111.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    @include background-image-cover();
+    height: 80vh;
+    width: 100vw;
   }
   .slide4 {
     background-image: url(../shoppingcart.svg);
-  }
-  .slide1,
-  .slide2,
-  .slide3,
-  .slide4 {
     @include background-image-cover();
     height: 80vh;
     width: 100vw;
@@ -415,7 +446,6 @@ nav {
     font-weight: 700;
     font-size: 50px;
     color: $button-primary;
-    // background-color: #0000000d;
   }
 }
 
@@ -471,13 +501,12 @@ nav {
 }
 
 .service-provider {
-  // height: calc(100vh - 5vh);
   @include section-padding();
   .section-heading {
     border-radius: 10px;
     width: fit-content;
-    // background-color: #e2aa01;
-    font-weight: 600;
+    background-color: $button-primary;
+    font-weight: 900;
     margin: 0 auto;
   }
   .col-md-3 {
@@ -599,7 +628,7 @@ nav {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 17px;
+        font-size: 14px;
         color: $form-assist-font-color;
       }
     }
@@ -660,11 +689,10 @@ nav {
   @include background-image-cover();
   .row {
     height: 100%;
-    .col-md-12 {
+    @include flex-justify-center();
+    @include flex-center-align();
+    .col-md-8 {
       height: fit-content;
-      position: relative;
-      margin: 0 auto;
-      top: 30px;
     }
   }
   .container {
@@ -673,7 +701,7 @@ nav {
 
   .form-container {
     background-color: rgba(255, 255, 255, 0.36);
-    padding: 80px 60px;
+    padding: 60px 60px;
     // border: solid 1px $button-primary;
     box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
     -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
@@ -697,7 +725,7 @@ nav {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 17px;
+        font-size: 14px;
         color: $form-assist-font-color;
       }
     }
@@ -753,6 +781,105 @@ nav {
   }
 }
 
+////////////////// LOAN //////////////////
+
+.loan {
+  height: 100vh;
+  background-image: url(../topupbackground.svg);
+  @include background-image-cover();
+  background-position: 0 0 !important;
+  .row {
+    height: 100%;
+  }
+  .container {
+    height: 100%;
+  }
+  .col-md-6,
+  .col-md-12 {
+    height: fit-content;
+    position: relative;
+    margin: 0 auto;
+    top: 80px;
+  }
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 80px 60px;
+    // border: solid 1px $button-primary;
+    box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
+    @include borderRadius(10px);
+  }
+  .form-heading {
+    height: 50px;
+    @include flex-space-between();
+    h2 {
+      @include heading-font();
+      color: $primary-font-color;
+      margin: 0;
+    }
+  }
+  form {
+    padding-top: 15px;
+    .form-assist {
+      @include flex-space-between();
+      button {
+        @include p-font();
+        border: none;
+        background-color: transparent;
+        font-size: 14px;
+        color: $form-assist-font-color;
+      }
+    }
+  }
+  .form-group {
+    input {
+      box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+      -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
+    }
+  }
+
+  .finish {
+    padding-top: 20px;
+    @include flex-end();
+    .signin-btn {
+      @include p-font();
+      background-color: $auth-font-color;
+      font-weight: 600;
+      font-size: 18px;
+      border: none;
+      color: $body-secondary-bg;
+      @include borderRadius(10px);
+    }
+    .signup-btn {
+      margin-left: 15px;
+      border: none;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 18px;
+      color: $primary-font-color;
+      box-shadow: none;
+    }
+  }
+
+  .exit {
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    &:focus {
+      outline: none;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-image: url(../close.svg);
+      @include background-image-contain();
+    }
+  }
+}
+
 // TOPUP ////////////////////
 
 .quicktopup {
@@ -799,7 +926,7 @@ nav {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 17px;
+        font-size: 14px;
         color: $form-assist-font-color;
       }
     }
@@ -855,14 +982,12 @@ nav {
 // FOOTER ////////////////////
 
 .footer {
-  background-color: black;
+  background-color: $alt-navigation-color;
   @include section-padding();
   position: relative;
   .banner {
     padding-top: 30px;
-    // img {
-    //   margin-bottom: 5px;
-    // }
+    height: 150px;
     p {
       color: $body-secondary-bg;
       font-size: smaller;
@@ -887,17 +1012,21 @@ nav {
   }
   button {
     text-align: left;
-    border: none;
+    border: none !important;
     background-color: transparent;
     color: $body-secondary-bg;
     font-family: $font-family;
     padding: 5px 0;
+    &:focus {
+      outline: none !important;
+    }
   }
   .support {
     display: inline-block;
     position: fixed;
-    right: 20px;
+    right: 10px;
     bottom: 20px;
+    z-index: 500; // The Highest z=number for z-index used is 500
     @include borderRadius(50px);
     button {
       @include flex-justify-center();
@@ -929,9 +1058,9 @@ nav {
     position: absolute;
     background-color: $body-secondary-bg;
     right: 0;
-    width: 380px;
-    height: 580px;
-    transform: translateY(-650px);
+    width: 300px;
+    height: 510px;
+    transform: translateY(-580px);
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -956,10 +1085,15 @@ nav {
       border: none;
     }
 
-    // .body {
-    // }
-    // .chat-bubble {
-    // }
+    .body {
+      height: inherit;
+      border: none;
+      border-bottom: 0.5px solid #0000000d;
+    }
+    .chat-bubble {
+      border: solid 1px green;
+      margin: 5px 0;
+    }
     .textbox {
       @include flex-end();
       border: none;
@@ -972,25 +1106,29 @@ nav {
           color: black;
           width: 100%;
           padding: 10px 15px;
+          box-shadow: 0px 6px 11px -7px rgba(0, 0, 0, 0.349);
+          -webkit-box-shadow: 0px 6px 11px -7px rgba(0, 0, 0, 0.349);
+          -moz-box-shadow: 0px 6px 11px -7px rgba(0, 0, 0, 0.349);
           @include borderRadius(10px);
           &:focus {
             outline: none;
             background-color: rgb(231, 231, 231);
           }
         }
-      }
-      button {
-        width: 40px;
-        height: 40px;
-        border: none;
-        background-color: $button-primary;
-        margin-left: 15px;
-        transition: none;
-        @include borderRadius(50%);
-        padding: 0 15px;
-        color: black;
-        &:focus {
-          outline: none;
+
+        button {
+          width: 40px;
+          height: 40px;
+          border: none;
+          background-color: $button-primary;
+          margin-left: 15px;
+          transition: none;
+          @include borderRadius(50%);
+          padding: 0 15px;
+          color: black;
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
@@ -1033,6 +1171,166 @@ nav {
 }
 
 //////////////////// MEDIA QUERY //////////////////
+
+// SHOW AND HIDE HAMBURGER
+
+@media only screen and (min-width: 768px) and (max-width: 3650px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .footer {
+    .banner {
+      height: 120px;
+    }
+  }
+}
+
+@media only screen and (min-width: 575px) and (max-width: 768px) {
+  // About
+
+  .about {
+    .cards-container {
+      padding: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Styles here */
+  .hamburger {
+    display: flex !important;
+  }
+  nav {
+    display: flex !important;
+    width: 0vw;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 90px;
+    z-index: 300;
+    opacity: 0;
+    background-color: black;
+    transition: 0.1s all;
+    &.active {
+      display: flex !important;
+      width: 100vw;
+      overflow: hidden;
+      position: absolute;
+      right: 0px;
+      top: 14vh;
+      background-color: $alt-navigation-color;
+      z-index: 200;
+      opacity: 1;
+      transition: 0.1s all;
+    }
+    ul {
+      @include flex-column-align();
+      justify-content: unset;
+      width: 100%;
+      height: 100vh;
+      li {
+        width: -webkit-fill-available !important;
+        // height: 40px;
+        margin: 0;
+        padding: 10px 0;
+        @include flex-center-align();
+        border-bottom: 0.5px solid #e2aa010d;
+      }
+    }
+  }
+
+  .logo-wrapper {
+    height: 60px;
+  }
+
+  .signup,
+  .login,
+  .quicktopup {
+    .form-container {
+      padding: 30px 20px;
+    }
+    .finish {
+      padding-top: 0;
+    }
+  }
+
+  // Hero Carousel
+
+  .slick-next,
+  .slick-prev {
+    opacity: 0;
+  }
+  .carousel-item h4 {
+    top: 35%;
+    font-weight: 600;
+    font-size: 35px;
+    width: 250px;
+    text-align: center;
+  }
+  .slick-dots li {
+    opacity: 0;
+  }
+
+  // About
+
+  .about {
+    height: unset;
+  }
+
+  .service-provider {
+    .section-heading {
+      font-weight: 600;
+    }
+    .cards {
+      .provider-container {
+        margin-bottom: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  // Footer
+  .footer {
+    // .support {
+    // }
+    .banner {
+      height: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .signup,
+  .login,
+  .quicktopup,
+  .loan {
+    .form-container {
+      padding: 30px 20px;
+    }
+  }
+  .signup {
+    .col-md-8 {
+      padding: 0;
+    }
+  }
+  .login,
+  .quicktopup,
+  .loan {
+    .col-md-6 {
+      padding: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  /* Styles here */
+  .hamburger {
+    display: none;
+  }
+}
 
 // Import Bootstrap and its default variables
 @import "node_modules/bootstrap/scss/bootstrap.scss";

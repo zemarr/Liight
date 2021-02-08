@@ -10,11 +10,11 @@ const Signup = () => {
       <section className="signup">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-8">
               <div className="form-container">
                 <div className="form-heading">
                   <Heading>
-                    <h2>SIGN UP</h2>
+                    <h4>SIGN UP</h4>
                   </Heading>
                   <Link to="/">
                     <Button className="exit">
@@ -30,7 +30,7 @@ const Signup = () => {
                       <input
                         name="username"
                         type="username"
-                        className="form-control form-control-lg"
+                        className="form-control form-control-md"
                         id="username"
                         placeholder="Username"
                         required
@@ -40,7 +40,7 @@ const Signup = () => {
                       <input
                         name="phone"
                         type="number"
-                        className="form-control form-control-lg"
+                        className="form-control form-control-md"
                         id="phone"
                         placeholder="Phone number"
                       />
@@ -50,7 +50,7 @@ const Signup = () => {
                     <input
                       name="meterNumber"
                       type="text"
-                      className="form-control form-control-lg"
+                      className="form-control form-control-md"
                       id="meterNumber"
                       placeholder="Meter Number"
                     />
@@ -59,7 +59,7 @@ const Signup = () => {
                     <input
                       name="email"
                       type="email"
-                      className="form-control form-control-lg"
+                      className="form-control form-control-md"
                       id="email"
                       placeholder="Email"
                       required
@@ -70,7 +70,7 @@ const Signup = () => {
                       <input
                         name="password"
                         type="password"
-                        className="form-control form-control-lg"
+                        className="form-control form-control-md"
                         id="password"
                         placeholder="Password"
                       />
@@ -79,7 +79,7 @@ const Signup = () => {
                       <input
                         name="confirmPassword"
                         type="password"
-                        className="form-control form-control-lg"
+                        className="form-control form-control-md"
                         id="confirmPassword"
                         placeholder="Confirm Password"
                       />

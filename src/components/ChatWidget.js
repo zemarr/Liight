@@ -7,8 +7,8 @@ import send from "../send.svg";
 import { WidgetContext } from "../context/WidgetContext"; // import WidgetContext. We will be using this soon
 
 const ChatWidget = () => {
-  const data = useContext(WidgetContext); // I created a variable for readability.
-  // what we did here was that we called the useContextApi and gave it a parameter
+  const data = useContext(WidgetContext); // I created a variable called `data` for readability.
+  // what we did here was that we called the useContextApi and gave it a parameter of WidgetContext
   // [which is actually the Provider context we wish to subscribe to]
 
   const { showWidget, setShowWidget } = data; // object destructuring for data we wish to subscribe to from the provider Context
@@ -36,16 +36,12 @@ const ChatWidget = () => {
 };
 
 export const ChatBox = () => {
-  // const dummyData = [
-  //   {
-  //     name: "user007",
-  //     message: "Got any issues? we are here to help.",
-  //   },
-  //   {
-  //     name: "user983",
-  //     message: "I need guns.. Lots of guns.",
-  //   },
-  // ];
+  const dummyData = [
+    {
+      name: "user007",
+      message: "Got any issues? we are here to help.",
+    },
+  ];
 
   // let date = new Date();
 
@@ -89,15 +85,22 @@ export const ChatBox = () => {
         <li className="body list-group-item">
           <span className="current-date"></span>
           <ul>
-            <li>
-              <div className="chat-bubble">
-                {/* {dummyData.map("message", () => {
-                    //   <span>{message.message}</span>
-                    console.log(dummyData)
-                  })} */}
-              </div>
-              <span className="current-time"></span>
-            </li>
+            {/* Chat bubble item */}
+            {dummyData.map((data, i) => {
+              console.log(data);
+              return (
+                <li key={i}>
+                  <div className="chat-bubble">
+                    <span>{data.name}</span>
+                    <br />
+                    <span>{data.message}</span>
+                  </div>
+
+                  <span className="current-time"></span>
+                </li>
+              );
+            })}
+            {/* Chat bubble item */}
           </ul>
         </li>
         <li className="textbox list-group-item">

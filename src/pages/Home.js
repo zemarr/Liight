@@ -19,6 +19,25 @@ import ChatWidget from "../components/ChatWidget";
 import { WidgetContextProvider } from "../context/WidgetContext";
 
 const Home = () => {
+  // console.log(document.body.clientWidth) // get the width of the website body
+  // const [isMobile, setIsMobile] = useState();
+
+  // const documentWidthHandler = () => {
+  //   let width = document.body.clientWidth;
+  //   let height = document.body.clientHeight;
+  //   if (width > 768) {
+  //     console.log("Desktop View");
+  //     console.log(width, height);
+  //   }
+  //   if (width <= 768) {
+  //     console.log("Mobile view");
+  //     console.log(width, height);
+  //   } else {
+  //     return;
+  //   }
+  // };
+  // documentWidthHandler();
+
   return (
     <>
       <Layout>
@@ -78,8 +97,8 @@ const Home = () => {
 
         {/* <hr /> */}
 
-        <section className="service-provider container">
-          <div className="section-padd">
+        <section className="service-provider">
+          <div className="section-padd container">
             <Heading>
               <h4 className="section-heading p-2">Service Providers</h4>
             </Heading>
@@ -140,7 +159,7 @@ const Home = () => {
             <div className="row">
               <div className="col-md-3">
                 <div className="banner">
-                  <img src={Logo} alt="Official Logo" height="100px" />
+                  <img src={Logo} alt="Official Logo" height="100%" />
                   <p>
                     <b>&copy;</b>2021 All rights reserved
                   </p>

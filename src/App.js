@@ -7,6 +7,7 @@ import Login from "./components/LoginForm";
 import QuickTopup from "./components/QuickTopup";
 import Signup from "./components/Signup";
 import { PopupContextProvider } from "./context/PopupContext";
+import Loan from "./components/Loan";
 
 // We want the entire app to be able to subrscribe to App
 // Create AuthContext and set default values in App's state
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/login" component={Login} />
             <Route path="/sign-up" component={Signup} />
             <Route path="/topup" component={QuickTopup} />
+            <Route path="/loan" component={Loan} />
             <Route path="/admin" exact component={Admin} />
           </Switch>
         </BrowserRouter>

@@ -15,7 +15,7 @@ const Login = () => {
               <div className="form-container">
                 <div className="form-heading">
                   <Heading>
-                    <h2>LOG IN</h2>
+                    <h4>LOG IN</h4>
                   </Heading>
                   <Link to="/">
                     <Button className="exit">
@@ -29,7 +29,7 @@ const Login = () => {
                     <input
                       name="username"
                       type="text"
-                      className="form-control form-control-lg"
+                      className="form-control form-control-md"
                       id="username"
                       placeholder="Username"
                     />
@@ -38,7 +38,7 @@ const Login = () => {
                     <input
                       name="password"
                       type="password"
-                      className="form-control form-control-lg"
+                      className="form-control form-control-md"
                       id="password"
                       placeholder="Password"
                     />

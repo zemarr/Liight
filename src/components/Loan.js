@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import Heading from "./Heading";
 import Button from "./Button";
 
-const QuickTopup = () => {
+const Loan = () => {
   return (
     <>
-      <section className="quicktopup">
+      <section className="loan">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
               <div className="form-container">
                 <div className="form-heading">
                   <Heading>
-                    <h2>TOP UP</h2>
+                    <h4>LOAN</h4>
                   </Heading>
                   <Link to="/">
                     <Button className="exit">
@@ -48,8 +48,10 @@ const QuickTopup = () => {
                       placeholder="Amount"
                     />
                   </div>
-                  <div className='finish'>
-                    <Button type='submit' className='signin-btn p-3'>Recharge</Button>
+                  <div className="finish">
+                    <Button type="submit" className="signin-btn p-3">
+                      Recharge
+                    </Button>
                   </div>
                 </form>
               </div>
@@ -61,4 +63,4 @@ const QuickTopup = () => {
   );
 };
 
-export default QuickTopup;
+export default Loan;
