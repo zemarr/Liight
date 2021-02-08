@@ -696,8 +696,11 @@ nav {
   .exit {
     border: none;
     background-color: transparent;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    @include flex-center-align();
+    @include flex-justify-center();
     &:focus {
       outline: none;
     }
@@ -774,8 +777,11 @@ nav {
   .exit {
     border: none;
     background-color: transparent;
-    height: 30px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    @include flex-center-align();
+    @include flex-justify-center();
     &:focus {
       outline: none;
     }
@@ -895,8 +901,11 @@ nav {
   .exit {
     border: none;
     background-color: transparent;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    @include flex-center-align();
+    @include flex-justify-center();
     &:focus {
       outline: none;
     }
@@ -994,8 +1003,11 @@ nav {
   .exit {
     border: none;
     background-color: transparent;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    @include flex-center-align();
+    @include flex-justify-center();
     &:focus {
       outline: none;
     }
