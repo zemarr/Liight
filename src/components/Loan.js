@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import Heading from "./Heading";
 import Button from "./Button";
 
-import close from '../close.svg';
-
 const Loan = () => {
   return (
     <>
@@ -20,8 +18,7 @@ const Loan = () => {
                   </Heading>
                   <Link to="/">
                     <Button className="exit">
-                      {/* <div className="icon"></div> */}
-                      <img src={close} alt="close" width="100%" />
+                      <div className="icon"></div>
                     </Button>
                   </Link>
                 </div>
