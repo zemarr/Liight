@@ -72,7 +72,7 @@ $font-family: "Roboto", sans-serif;
 }
 @mixin background-image-contain {
   background-size: contain;
-  background-position: center;
+  background-position: 0 0;
   background-repeat: no-repeat;
 }
 @mixin heading-font {
@@ -705,8 +705,8 @@ nav {
       outline: none;
     }
     .icon {
-      width: 20px;
-      height: 20px;
+      width: 60%;
+      height: 60%;
       background-image: url(../close.svg);
       @include background-image-contain();
     }
@@ -786,8 +786,8 @@ nav {
       outline: none;
     }
     .icon {
-      width: 20px;
-      height: 20px;
+      width: 60%;
+      height: 60%;
       background-image: url(../close.svg);
       @include background-image-contain();
     }
@@ -910,8 +910,8 @@ nav {
       outline: none;
     }
     .icon {
-      width: 20px;
-      height: 20px;
+      width: 60%;
+      height: 60%;
       background-image: url(../close.svg);
       @include background-image-contain();
     }
@@ -1012,8 +1012,8 @@ nav {
       outline: none;
     }
     .icon {
-      width: 20px;
-      height: 20px;
+      width: 60%;
+      height: 60%;
       background-image: url(../close.svg);
       @include background-image-contain();
     }
