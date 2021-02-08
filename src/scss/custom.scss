@@ -653,11 +653,13 @@ nav {
     padding-top: 15px;
     .form-assist {
       @include flex-space-between();
+      margin-bottom: 1.5rem;
       button {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 14px;
+        font-size: 12px;
+        text-align: left;
         color: $form-assist-font-color;
       }
     }
@@ -753,11 +755,13 @@ nav {
     padding-top: 15px;
     .form-assist {
       @include flex-space-between();
+      margin-bottom: 1.5rem;
       button {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 14px;
+        font-size: 12px;
+        text-align: left;
         color: $form-assist-font-color;
       }
     }
@@ -858,11 +862,13 @@ nav {
     padding-top: 15px;
     .form-assist {
       @include flex-space-between();
+      margin-bottom: 1.5rem;
       button {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 14px;
+        font-size: 12px;
+        text-align: left;
         color: $form-assist-font-color;
       }
     }
@@ -960,11 +966,13 @@ nav {
     padding-top: 15px;
     .form-assist {
       @include flex-space-between();
+      margin-bottom: 1.5rem;
       button {
         @include p-font();
         border: none;
         background-color: transparent;
-        font-size: 14px;
+        font-size: 12px;
+        text-align: left;
         color: $form-assist-font-color;
       }
     }
