@@ -84,9 +84,9 @@ const Header = () => {
           onClick={toggleActiveNav}
         >
           {active ? (
-            <img src={hamburgerClose} alt="" width="40px" height="20px" />
+            <img src={hamburgerClose} alt="" width="40px" height="20px" className="animate__animated animate__fadeIn animate__faster" />
           ) : (
-            <img src={hamburger} alt="" width="40px" height="30px" />
+            <img src={hamburger} alt="" width="40px" height="30px" className="animate__animated animate__fadeIn animate__faster" />
           )}
         </div>
       </div>
