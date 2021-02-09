@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Admin from "./pages/Admin";
+import Admin from "./pages/AdminLayout";
 
 import Home from "./pages/Home";
 import Login from "./components/LoginForm";
@@ -10,10 +10,10 @@ import { PopupContextProvider } from "./context/PopupContext";
 import Loan from "./components/Loan";
 
 import WOW from "wowjs";
+import ProtectedRoute from "./components/protected.route";
 
-// We want the entire app to be able to subrscribe to App
+// We want the entire app to be able to subscribe to App
 // Create AuthContext and set default values in App's state
-// create reducer hook to handle authentication logic
 
 const App = () => {
   new WOW.WOW({
@@ -29,7 +29,8 @@ const App = () => {
             <Route path="/sign-up" component={Signup} />
             <Route path="/topup" component={QuickTopup} />
             <Route path="/loan" component={Loan} />
-            <Route path="/admin" exact component={Admin} />
+            <ProtectedRoute path="/admin" exact component={Admin} />
+            <Route path="*" exact component={() => "404 NOT FOUND"} />
           </Switch>
         </BrowserRouter>
       </div>

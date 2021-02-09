@@ -1,8 +1,9 @@
 import React from "react";
-
 import Carousel from "../components/Carousel";
+import ChatWidget from "../components/ChatWidget";
 import Heading from "../components/Heading";
 import ScrollToTop from "../components/ScrollToTop";
+import { WidgetContextProvider } from "../context/WidgetContext";
 
 import Logo from "../emblem.png";
 import ie from "../ike.svg";
@@ -14,11 +15,9 @@ import AppStore from "../appstore.svg";
 import facebook from "../facebook.svg";
 import twitter from "../twitter.svg";
 import instagram from "../instagram.svg";
-import ChatWidget from "../components/ChatWidget";
-import { WidgetContextProvider } from "../context/WidgetContext";
 import Header from "../components/Header";
 
-const Home = () => {
+const Admin = () => {
   // console.log(document.body.clientWidth) // get the width of the website body
   // const [isMobile, setIsMobile] = useState();
 
@@ -37,10 +36,12 @@ const Home = () => {
   //   }
   // };
   // documentWidthHandler();
-
   return (
     <>
-      <Header to="/login" authLabel="Log In" />
+      <Header
+        to="/"
+        authLabel="Log Out"
+      />
       <section id="hero" className="wow animate__animated animate__fadeIn">
         <Carousel />
       </section>
@@ -220,4 +221,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Admin;

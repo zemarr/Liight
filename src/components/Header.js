@@ -7,7 +7,7 @@ import demoprofileimage from "../demoprofileimage.svg";
 import hamburger from "../hamburger.svg";
 import hamburgerClose from "../close-hamburger.svg";
 
-const Header = () => {
+const Header = (props) => {
   const [active, setActive] = useState(false); // This state belongs to the navigation responsive hamburger
   const [scroll, setScroll] = useState(false); // This stores the scroll state of the webpage
 
@@ -33,6 +33,7 @@ const Header = () => {
     // A useEffect hook used to add an event listener to the document body. It is important for tracking the scroll distance to the top
     window.addEventListener("scroll", toggleHeader);
   }, []);
+
   return (
     // Here we will refer to the scroll state and make use of the data to add and remove our active className
     // There are also animation classes included for smoother transitioning and aesthetics
@@ -63,16 +64,16 @@ const Header = () => {
                 <Link to="/topup">QUICK TOP-UP</Link>
               </li>
               <li className=" animate__animated animate__fadeIn">
-                <Link to="/login">
-                  <span>
+                <Link to={props.to}>
+                  <button onClick={props.onClick}>
                     {/* Also used the hamburger active state to toggle the icon for the login button */}
                     <img
                       src={demoprofileimage}
                       width={active ? "25px" : "30px"}
                       alt="Log in"
                     />
-                    &nbsp;&nbsp;Log in
-                  </span>
+                    &nbsp;&nbsp;{props.authLabel}
+                  </button>
                 </Link>
               </li>
             </ul>
@@ -84,9 +85,21 @@ const Header = () => {
           onClick={toggleActiveNav}
         >
           {active ? (
-            <img src={hamburgerClose} alt="" width="40px" height="20px" className="animate__animated animate__fadeIn animate__faster" />
+            <img
+              src={hamburgerClose}
+              alt=""
+              width="40px"
+              height="20px"
+              className="animate__animated animate__fadeIn animate__faster"
+            />
           ) : (
-            <img src={hamburger} alt="" width="40px" height="30px" className="animate__animated animate__fadeIn animate__faster" />
+            <img
+              src={hamburger}
+              alt=""
+              width="40px"
+              height="30px"
+              className="animate__animated animate__fadeIn animate__faster"
+            />
           )}
         </div>
       </div>
