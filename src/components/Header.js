@@ -69,7 +69,7 @@ const Header = (props) => {
                     {/* Also used the hamburger active state to toggle the icon for the login button */}
                     <img
                       src={demoprofileimage}
-                      width={active ? "25px" : "30px"}
+                      width={active ? "30px" : "20px"}
                       alt="Log in"
                     />
                     &nbsp;&nbsp;{props.authLabel}

@@ -119,6 +119,12 @@ $font-family: "Roboto", sans-serif;
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+@mixin boxShadowSharp {
+  box-shadow: 0px 7px 7px -10px rgba(0, 0, 0, 0.78);
+  -webkit-box-shadow: 0px 7px 7px -10px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 0px 7px 7px -10px rgba(0, 0, 0, 0.78);
+}
+
 @mixin borderRadius($size...) {
   @if length($size) == 1 {
     @each $prefix in $prefixes {
@@ -268,7 +274,7 @@ nav {
         font-size: 15px;
         color: $body-secondary-bg;
         font-weight: 400;
-        padding: 5px 10px 5px 5px;
+        padding: 8px;
         @include borderRadius(20px);
         border: none;
         background-color: transparent;
@@ -337,6 +343,11 @@ nav {
 
 #hero {
   height: calc(100vh - 12vh);
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.014),
+    rgba(0, 0, 0, 0.021)
+  );
 }
 
 .hero-carousel {
@@ -458,25 +469,45 @@ nav {
 .carousel-item {
   @include flex-justify-center();
   .slide1 {
-    background-image: url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     @include background-image-cover();
     height: calc(100vh - 16vh);
     width: 100vw;
   }
   .slide2 {
-    background-image: url(../247.jpg);
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url(../247.jpg);
     @include background-image-cover();
     height: calc(100vh - 16vh);
     width: 100vw;
   }
   .slide3 {
-    background-image: url(../securepayment.jpeg);
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url(../securepayment.jpeg);
     @include background-image-cover();
     height: calc(100vh - 16vh);
     width: 100vw;
   }
   .slide4 {
-    background-image: url(../shoppingcart.svg);
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url(../shoppingcart.svg);
     @include background-image-cover();
     height: calc(100vh - 16vh);
     width: 100vw;
@@ -493,6 +524,11 @@ nav {
 ////////////// ABOUT /////////////////////
 
 .about {
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.021),
+    rgba(0, 0, 0, 0.014)
+  );
   height: calc(100vh - 5vh);
   @include section-padding();
   .section-heading {
@@ -512,6 +548,7 @@ nav {
     .icon {
       background-color: $button-primary;
       @include borderRadius(10px);
+      @include boxShadowSharp();
       height: 70px;
       width: 70px;
       padding: 10px;
@@ -542,6 +579,11 @@ nav {
 }
 
 .service-provider {
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.014),
+    rgba(0, 0, 0, 0.021)
+  );
   @include section-padding();
   .section-heading {
     border-radius: 10px;
@@ -555,6 +597,7 @@ nav {
   }
   .cards {
     margin: 6rem 0;
+
     .provider-container {
       padding: 0 1.5rem;
       text-align: center;
@@ -562,6 +605,9 @@ nav {
       background-color: $body-secondary-bg;
       height: 80px;
       width: 150px;
+      box-shadow: 0px 7px 7px -10px rgba(0, 0, 0, 0.78);
+      -webkit-box-shadow: 0px 7px 7px -10px rgba(0, 0, 0, 0.78);
+      -moz-box-shadow: 0px 7px 7px -10px rgba(0, 0, 0, 0.78);
       img {
         height: 100%;
         width: 100%;
@@ -620,6 +666,7 @@ nav {
     @include flex-space-around();
     img {
       height: 43px;
+      @include boxShadowSharp();
     }
   }
 }
@@ -628,7 +675,12 @@ nav {
 
 .login {
   height: 100vh;
-  background-image: url(../loginbackground.svg);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../loginbackground.svg);
   @include background-image-cover();
   .row {
     height: 100%;
@@ -731,7 +783,12 @@ nav {
 
 .signup {
   height: 100vh;
-  background-image: url(../loginbackground.svg);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../loginbackground.svg);
   @include background-image-cover();
   .row {
     height: 100%;
@@ -836,7 +893,12 @@ nav {
 
 .loan {
   height: 100vh;
-  background-image: url(../topupbackground.svg);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../topupbackground.svg);
   @include background-image-cover();
   background-position: 0 0 !important;
   .row {
@@ -940,7 +1002,12 @@ nav {
 
 .quicktopup {
   height: 100vh;
-  background-image: url(../topupbackground.svg);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../topupbackground.svg);
   @include background-image-cover();
   background-position: 0 0 !important;
   .row {
@@ -1436,6 +1503,162 @@ nav {
       @include flex-space-evenly();
       img {
         height: 35px;
+      }
+    }
+  }
+  #hero {
+    height: 300px;
+  }
+  .carousel-item {
+    // CUSTOM SIZING AND MEASUREMENTS FOR INDIVIDUAL CAROUSEL SLIDES/SLIDES
+    @include flex-justify-center();
+
+    .slide1 {
+      // background-image: url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+      @include background-image-cover();
+      height: calc(100vh - 60vh);
+      width: 100vw;
+    }
+    .slide2 {
+      // background-image: url(../247.jpg);
+      @include background-image-cover();
+      height: calc(100vh - 60vh);
+      width: 100vw;
+    }
+    .slide3 {
+      // background-image: url(../securepayment.jpeg);
+      @include background-image-cover();
+      height: calc(100vh - 60vh);
+      width: 100vw;
+    }
+    .slide4 {
+      // background-image: url(../shoppingcart.svg);
+      @include background-image-cover();
+      height: calc(100vh - 60vh);
+      width: 100vw;
+    }
+    h4 {
+      // position: absolute;
+      // top: 46%;
+      font-weight: 800;
+      font-size: 22px;
+      color: $button-primary;
+    }
+  }
+
+  .hero-carousel {
+    // CUSTOMIZED SCSS STYLING FOR SLICK CAROUSEL CSS
+    .slick-track {
+      height: auto;
+    }
+    .slick-prev {
+      line-height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      display: block;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      transform: translate(0, -50%);
+      cursor: pointer;
+      color: transparent;
+      border: none;
+      outline: none;
+      background: #0000001a;
+      z-index: 200;
+      &::before {
+        content: none;
+        font-family: "slick";
+        font-size: 50px;
+        line-height: 1;
+        opacity: 0.75;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .prev {
+        margin: 0 auto;
+        background-image: url(../arrowleft.svg);
+        @include background-image-contain();
+        height: 30px;
+        width: 30px;
+      }
+    }
+    .slick-next {
+      line-height: 0;
+      position: absolute;
+      top: 50%;
+      right: 50px;
+      display: block;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      transform: translate(0, -50%);
+      cursor: pointer;
+      color: transparent;
+      border: none;
+      outline: none;
+      background: #0000001a;
+      // z-index: 200;
+      &::before {
+        content: none;
+        font-family: "slick";
+        font-size: 50px;
+        line-height: 1;
+        opacity: 0.75;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .next {
+        margin: 0 auto;
+        background-image: url(../arrowright.svg);
+        @include background-image-contain();
+        height: 30px;
+        width: 30px;
+      }
+    }
+    .slick-dots {
+      position: absolute;
+      bottom: 35px;
+      display: block;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-align: center;
+      opacity: 0;
+      .slick-active {
+        button {
+          font-size: 0;
+          line-height: 0;
+          display: block;
+          width: 20px;
+          height: 20px;
+          padding: 5px;
+          cursor: pointer;
+          color: transparent;
+          border: 0;
+          outline: none;
+          background: transparent;
+          &::before {
+            font-family: "slick";
+            font-size: 10px;
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            content: "•";
+            text-align: center;
+            opacity: 0.75;
+            color: $button-primary;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+        }
       }
     }
   }

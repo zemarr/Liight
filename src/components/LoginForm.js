@@ -59,8 +59,7 @@ const Login = (props) => {
       });
     } else if (user.username !== "admin" && user.password !== "admin12345") {
       setError({
-        accountError:
-          "You don't have an account yet. Go to sign up to create your account!",
+        accountError: "Oops! No user like that. Create your account now!",
       });
     } else if (user.username === "admin" && user.password !== "admin12345") {
       setError({
@@ -112,7 +111,17 @@ const Login = (props) => {
                       placeholder="Username"
                       onChange={handleUsername}
                     />
-                    {error.nameError}
+                    <span
+                      style={{
+                        display: "block",
+                        marginBottom: "15px",
+                        color: "#ad0404",
+                        fontSize: "11px",
+                        paddingTop: "10px",
+                      }}
+                    >
+                      {error.nameError}
+                    </span>
                   </div>
                   <div className="form-group">
                     <input
@@ -123,10 +132,29 @@ const Login = (props) => {
                       placeholder="Password"
                       onChange={handlePassword}
                     />
-                    {error.passwordError}
+                    <span
+                      style={{
+                        display: "block",
+                        marginBottom: "10px",
+                        color: "#ad0404",
+                        fontSize: "11px",
+                        paddingTop: "10px",
+                      }}
+                    >
+                      {error.passwordError}
+                    </span>
                   </div>
-                  <div className="form-assist">
+                  <span
+                    style={{
+                      display: "block",
+                      marginBottom: "10px",
+                      color: "#ad0404",
+                      fontSize: "11px",
+                    }}
+                  >
                     {error.accountError}
+                  </span>
+                  <div className="form-assist">
                     <button>Can't access your account?</button>
                     <button>Forgot Password?</button>
                   </div>
