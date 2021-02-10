@@ -52,6 +52,9 @@ const Loan = () => {
                     <Button type="submit" className="signin-btn p-3">
                       Recharge
                     </Button>
+                    <Link to="/topup">
+                      <Button className="signup-btn">Topup</Button>
+                    </Link>
                   </div>
                 </form>
               </div>

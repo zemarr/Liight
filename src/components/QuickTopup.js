@@ -48,8 +48,13 @@ const QuickTopup = () => {
                       placeholder="Amount"
                     />
                   </div>
-                  <div className='finish'>
-                    <Button type='submit' className='signin-btn p-3'>Top Up</Button>
+                  <div className="finish">
+                    <Button type="submit" className="signin-btn p-3">
+                      Top Up
+                    </Button>
+                    <Link to="/loan">
+                      <Button className="signup-btn">Loan</Button>
+                    </Link>
                   </div>
                 </form>
               </div>
