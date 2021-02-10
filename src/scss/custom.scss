@@ -1135,8 +1135,6 @@ nav {
     }
   }
   .social-media {
-    @include flex-justify-center();
-    justify-content: unset;
     button {
       margin-right: 15px;
     }
