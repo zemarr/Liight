@@ -25,42 +25,42 @@ $font-family: "Roboto", sans-serif;
 }
 @mixin flex-center-align {
   display: flex !important;
-  align-items: center;
+  align-items: center !important;
 }
 @mixin flex-justify-center {
   display: flex !important;
-  justify-content: center;
+  justify-content: center !important;
 }
 @mixin flex-justify-self-center {
   display: flex !important;
-  align-self: center;
-  justify-self: center;
+  align-self: center !important;
+  justify-self: center !important;
 }
 @mixin flex-space-between {
   display: flex !important;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 @mixin flex-space-evenly {
   display: flex !important;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-evenly !important;
 }
 @mixin flex-space-around {
   display: flex !important;
-  align-items: center;
-  justify-content: space-around;
+  align-items: center !important;
+  justify-content: space-around !important;
 }
 @mixin flex-end {
   display: flex !important;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: center !important;
+  justify-content: flex-end !important;
 }
 @mixin flex-column-center {
   display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 @mixin transition {
   transition: all 0.4s;
@@ -368,7 +368,6 @@ nav {
     color: transparent;
     border: none;
     outline: none;
-    background: #0000001a;
     z-index: 200;
     &::before {
       content: none;
@@ -376,7 +375,7 @@ nav {
       font-size: 50px;
       line-height: 1;
       opacity: 0.75;
-      color: white;
+      color: rgba(255, 255, 255, 0.418);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -402,7 +401,6 @@ nav {
     color: transparent;
     border: none;
     outline: none;
-    background: #0000001a;
     // z-index: 200;
     &::before {
       content: none;
@@ -410,7 +408,7 @@ nav {
       font-size: 50px;
       line-height: 1;
       opacity: 0.75;
-      color: white;
+      color: rgba(255, 255, 255, 0.418);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -468,6 +466,9 @@ nav {
 
 .carousel-item {
   @include flex-justify-center();
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   .slide1 {
     background-image: linear-gradient(
         0deg,
@@ -513,8 +514,9 @@ nav {
     width: 100vw;
   }
   h4 {
+    width: 70%;
+    text-align: center;
     position: absolute;
-    top: 46%;
     font-weight: 700;
     font-size: 50px;
     color: $button-primary;
@@ -1417,12 +1419,43 @@ nav {
   .slick-prev {
     opacity: 0;
   }
-  .carousel-item h4 {
-    top: 35%;
-    font-weight: 600;
-    font-size: 35px;
-    width: 250px;
-    text-align: center;
+  #hero {
+    height: 450px;
+  }
+  .carousel-item {
+    // CUSTOM SIZING AND MEASUREMENTS FOR INDIVIDUAL CAROUSEL SLIDES/SLIDES
+    @include flex-justify-center();
+
+    .slide1 {
+      @include background-image-cover();
+      height: calc(100vh - 30vh);
+    }
+    .slide2 {
+      @include background-image-cover();
+      height: calc(100vh - 30vh);
+    }
+    .slide3 {
+      @include background-image-cover();
+      height: calc(100vh - 30vh);
+    }
+    .slide4 {
+      @include background-image-cover();
+      height: calc(100vh - 30vh);
+    }
+    h4 {
+      width: 80%;
+      text-align: center;
+      font-weight: 800;
+      font-size: 30px;
+      color: $button-primary;
+    }
+  }
+
+  .hero-carousel {
+    // CUSTOMIZED SCSS STYLING FOR SLICK CAROUSEL CSS
+    .slick-track {
+      height: auto;
+    }
   }
   .slick-dots li {
     opacity: 0;
@@ -1477,6 +1510,45 @@ nav {
       padding: 0;
     }
   }
+
+  #hero {
+    height: 350px;
+  }
+  .carousel-item {
+    // CUSTOM SIZING AND MEASUREMENTS FOR INDIVIDUAL CAROUSEL SLIDES/SLIDES
+    @include flex-justify-center();
+
+    .slide1 {
+      @include background-image-cover();
+      height: calc(100vh - 50vh);
+    }
+    .slide2 {
+      @include background-image-cover();
+      height: calc(100vh - 50vh);
+    }
+    .slide3 {
+      @include background-image-cover();
+      height: calc(100vh - 50vh);
+    }
+    .slide4 {
+      @include background-image-cover();
+      height: calc(100vh - 50vh);
+    }
+    h4 {
+      width: 70%;
+      text-align: center;
+      font-weight: 800;
+      font-size: 25px;
+      color: $button-primary;
+    }
+  }
+
+  .hero-carousel {
+    // CUSTOMIZED SCSS STYLING FOR SLICK CAROUSEL CSS
+    .slick-track {
+      height: auto;
+    }
+  }
 }
 
 @media only screen and (max-width: 425px) {
@@ -1495,6 +1567,45 @@ nav {
       font-size: 1.2rem;
     }
   }
+
+  #hero {
+    height: 300px;
+  }
+  .carousel-item {
+    // CUSTOM SIZING AND MEASUREMENTS FOR INDIVIDUAL CAROUSEL SLIDES/SLIDES
+    @include flex-justify-center();
+
+    .slide1 {
+      @include background-image-cover();
+      height: calc(100vh - 55vh);
+    }
+    .slide2 {
+      @include background-image-cover();
+      height: calc(100vh - 55vh);
+    }
+    .slide3 {
+      @include background-image-cover();
+      height: calc(100vh - 55vh);
+    }
+    .slide4 {
+      @include background-image-cover();
+      height: calc(100vh - 55vh);
+    }
+    h4 {
+      width: 80%;
+      text-align: center;
+      font-weight: 800;
+      font-size: 22px;
+      color: $button-primary;
+    }
+  }
+
+  .hero-carousel {
+    // CUSTOMIZED SCSS STYLING FOR SLICK CAROUSEL CSS
+    .slick-track {
+      height: auto;
+    }
+  }
 }
 
 @media only screen and (max-width: 320px) {
@@ -1507,39 +1618,31 @@ nav {
     }
   }
   #hero {
-    height: 300px;
+    height: 350px;
   }
   .carousel-item {
     // CUSTOM SIZING AND MEASUREMENTS FOR INDIVIDUAL CAROUSEL SLIDES/SLIDES
     @include flex-justify-center();
 
     .slide1 {
-      // background-image: url(https://images.pexels.com/photos/4260639/pexels-photo-4260639.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
       @include background-image-cover();
-      height: calc(100vh - 60vh);
-      width: 100vw;
+      height: calc(100vh - 50vh);
     }
     .slide2 {
-      // background-image: url(../247.jpg);
       @include background-image-cover();
-      height: calc(100vh - 60vh);
-      width: 100vw;
+      height: calc(100vh - 50vh);
     }
     .slide3 {
-      // background-image: url(../securepayment.jpeg);
       @include background-image-cover();
-      height: calc(100vh - 60vh);
-      width: 100vw;
+      height: calc(100vh - 50vh);
     }
     .slide4 {
-      // background-image: url(../shoppingcart.svg);
       @include background-image-cover();
-      height: calc(100vh - 60vh);
-      width: 100vw;
+      height: calc(100vh - 50vh);
     }
     h4 {
-      // position: absolute;
-      // top: 46%;
+      width: 80%;
+      text-align: center;
       font-weight: 800;
       font-size: 22px;
       color: $button-primary;
@@ -1550,116 +1653,6 @@ nav {
     // CUSTOMIZED SCSS STYLING FOR SLICK CAROUSEL CSS
     .slick-track {
       height: auto;
-    }
-    .slick-prev {
-      line-height: 0;
-      position: absolute;
-      top: 50%;
-      left: 50px;
-      display: block;
-      width: 50px;
-      height: 50px;
-      padding: 0;
-      transform: translate(0, -50%);
-      cursor: pointer;
-      color: transparent;
-      border: none;
-      outline: none;
-      background: #0000001a;
-      z-index: 200;
-      &::before {
-        content: none;
-        font-family: "slick";
-        font-size: 50px;
-        line-height: 1;
-        opacity: 0.75;
-        color: white;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .prev {
-        margin: 0 auto;
-        background-image: url(../arrowleft.svg);
-        @include background-image-contain();
-        height: 30px;
-        width: 30px;
-      }
-    }
-    .slick-next {
-      line-height: 0;
-      position: absolute;
-      top: 50%;
-      right: 50px;
-      display: block;
-      width: 50px;
-      height: 50px;
-      padding: 0;
-      transform: translate(0, -50%);
-      cursor: pointer;
-      color: transparent;
-      border: none;
-      outline: none;
-      background: #0000001a;
-      // z-index: 200;
-      &::before {
-        content: none;
-        font-family: "slick";
-        font-size: 50px;
-        line-height: 1;
-        opacity: 0.75;
-        color: white;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .next {
-        margin: 0 auto;
-        background-image: url(../arrowright.svg);
-        @include background-image-contain();
-        height: 30px;
-        width: 30px;
-      }
-    }
-    .slick-dots {
-      position: absolute;
-      bottom: 35px;
-      display: block;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      text-align: center;
-      opacity: 0;
-      .slick-active {
-        button {
-          font-size: 0;
-          line-height: 0;
-          display: block;
-          width: 20px;
-          height: 20px;
-          padding: 5px;
-          cursor: pointer;
-          color: transparent;
-          border: 0;
-          outline: none;
-          background: transparent;
-          &::before {
-            font-family: "slick";
-            font-size: 10px;
-            line-height: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            content: "•";
-            text-align: center;
-            opacity: 0.75;
-            color: $button-primary;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-        }
-      }
     }
   }
 }

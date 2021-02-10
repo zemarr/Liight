@@ -43,19 +43,27 @@ const Carousel = () => {
             <div className="container-fluid">
               <div className="slide1 img-responsive"></div>
             </div>
-            <h4 className="p-1">EXPERIENCE THE BRIGHTER SIDE OF LIFE</h4>
+            <h4 className="p-1" style={{ margin: "0 auto" }}>
+              EXPERIENCE THE BRIGHTER SIDE OF LIFE
+            </h4>
           </div>
           <div className="carousel-item">
             <div className="slide2 img-responsive"></div>
-            <h4 className="p-1">24 HOURS CUSTOMER SUPPORT</h4>
+            <h4 className="p-1" style={{ margin: "0 auto" }}>
+              24 HOURS CUSTOMER SUPPORT
+            </h4>
           </div>
           <div className="carousel-item">
             <div className="slide3 img-responsive"></div>
-            <h4 className="p-1">SECURED PAYMENT</h4>
+            <h4 className="p-1" style={{ margin: "0 auto" }}>
+              SECURED PAYMENT
+            </h4>
           </div>
           <div className="carousel-item">
             <div className="slide4 img-responsive"></div>
-            <h4 className="p-1">BUY NOW AND PAY LATER</h4>
+            <h4 className="p-1" style={{ margin: "0 auto" }}>
+              BUY NOW AND PAY LATER
+            </h4>
           </div>
         </Slider>
       </div>
