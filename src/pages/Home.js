@@ -19,25 +19,6 @@ import { WidgetContextProvider } from "../context/WidgetContext";
 import Header from "../components/Header";
 
 const Home = () => {
-  // console.log(document.body.clientWidth) // get the width of the website body
-  // const [isMobile, setIsMobile] = useState();
-
-  // const documentWidthHandler = () => {
-  //   let width = document.body.clientWidth;
-  //   let height = document.body.clientHeight;
-  //   if (width > 768) {
-  //     console.log("Desktop View");
-  //     console.log(width, height);
-  //   }
-  //   if (width <= 768) {
-  //     console.log("Mobile view");
-  //     console.log(width, height);
-  //   } else {
-  //     return;
-  //   }
-  // };
-  // documentWidthHandler();
-
   return (
     <>
       <Header to="/login" authLabel="Log In" />
