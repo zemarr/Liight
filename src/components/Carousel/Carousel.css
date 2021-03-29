@@ -1,0 +1,170 @@
+.slick-track {
+  height: calc(100vh - 12vh);
+}
+
+.slick-next::before {
+  content: none;
+  font-family: "slick";
+  font-size: 50px;
+  line-height: 1;
+  opacity: 0.75;
+  color: rgba(255, 255, 255, 0.418);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-next .next {
+  margin: 0 auto;
+  background-image: url(../../img/arrowright.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  display: none;
+}
+.slick-dots {
+  position: absolute;
+  bottom: 35px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  opacity: 0;
+}
+
+.slick-active button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+  
+  display: none;
+}
+
+.slick-active button::before {
+  font-family: "slick";
+  font-size: 10px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: "•";
+  text-align: center;
+  opacity: 0.75;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-track .slick-prev {
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: 200;
+  display: none;
+}
+.slick-prev::before {
+  content: none;
+  font-family: "slick";
+  font-size: 50px;
+  line-height: 1;
+  opacity: 0.75;
+  color: rgba(255, 255, 255, 0.418);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-prev .prev {
+  margin: 0 auto;
+  background-image: url(../../img/arrowleft.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  display: none;
+}
+
+.carousel-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: violet;
+}
+
+.slide1 {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../../img/brighterside.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 16vh);
+  width: 100vw;
+}
+
+.slide2 {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../../img/247.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 16vh);
+  width: 100vw;
+}
+
+.slide3 {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../../img/securepayment.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 16vh);
+  width: 100vw;
+}
+
+.slide4 {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../../img/shoppingcart.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 16vh);
+  width: 100vw;
+}

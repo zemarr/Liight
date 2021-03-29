@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Container, Input } from "../../GlobalStyles";
 
-import auth from "../components/Auth";
+import auth from "../Auth";
+import {
+  LoginRow,
+  LoginColumn,
+  StyledSection,
+  Img,
+  SectionHeading,
+  FormWrapper,
+  FormHead,
+  CompleteForm,
+  LoginButton,
+  SignupButton,
+  Exit,
+  FormGroup,
+  FormAssist,
+} from "../Login/Login.elements";
 
-import Heading from "./Heading";
-import Button from "./Button";
+import ExitIcon from "../../img/close.svg";
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -85,25 +100,25 @@ const Login = (props) => {
 
   return (
     <>
-      <section className="login animate__animated animate__fadeIn animate__faster">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 animate__animated animate__fadeIn animate__fast">
-              <div className="form-container">
-                <div className="form-heading">
-                  <Heading>
-                    <h4>LOG IN</h4>
-                  </Heading>
-                  <Link to="/">
-                    <Button className="exit">
-                      <div className="icon"></div>
-                    </Button>
-                  </Link>
-                </div>
+      <StyledSection
+        noPadding
+        fullViewPort
+        className="login animate__animated animate__fadeIn animate__faster"
+      >
+        <Container fullScreen noPadding>
+          <LoginRow>
+            <LoginColumn className="animate__animated animate__fadeIn animate__fast">
+              <FormWrapper className="formWrapper">
+                <FormHead className="formHead">
+                  <SectionHeading>LOG IN</SectionHeading>
+                  <Exit to="/">
+                    <Img src={ExitIcon} alt="" className="exit" />
+                  </Exit>
+                </FormHead>
                 <hr />
                 <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <input
+                  <FormGroup className="form-group">
+                    <Input
                       name="username"
                       type="text"
                       className="form-control form-control-md"
@@ -122,9 +137,9 @@ const Login = (props) => {
                     >
                       {error.nameError}
                     </span>
-                  </div>
-                  <div className="form-group">
-                    <input
+                  </FormGroup>
+                  <FormGroup className="form-group">
+                    <Input
                       name="password"
                       type="password"
                       className="form-control form-control-md"
@@ -143,7 +158,7 @@ const Login = (props) => {
                     >
                       {error.passwordError}
                     </span>
-                  </div>
+                  </FormGroup>
                   <span
                     style={{
                       display: "block",
@@ -154,25 +169,34 @@ const Login = (props) => {
                   >
                     {error.accountError}
                   </span>
-                  <div className="form-assist">
-                    <button>Can't access your account?</button>
-                    <button>Forgot Password?</button>
-                  </div>
-                  <div className="finish">
+                  <FormAssist className="form-assist">
+                    <button onClick={(e) => e.preventDefault()}>
+                      Can't access your account?
+                    </button>
+                    <button onClick={(e) => e.preventDefault()}>
+                      Forgot Password?
+                    </button>
+                  </FormAssist>
+                  <CompleteForm>
                     {" "}
-                    <Button className="signin-btn p-3" onClick={handleSubmit}>
+                    <LoginButton
+                      className="signin-btn p-3"
+                      onClick={handleSubmit}
+                    >
                       Login
-                    </Button>
+                    </LoginButton>
                     <Link to="/sign-up">
-                      <Button className="signup-btn">Sign Up</Button>
+                      <SignupButton className="signup-btn">
+                        Sign Up
+                      </SignupButton>
                     </Link>
-                  </div>
+                  </CompleteForm>
                 </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              </FormWrapper>
+            </LoginColumn>
+          </LoginRow>
+        </Container>
+      </StyledSection>
     </>
   );
 };

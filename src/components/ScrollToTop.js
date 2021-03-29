@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
-import caretUp from "../backtotop.svg";
+import caretUp from "../img/backtotop.svg";
+
+export const BackToTopWidget = styled.div`
+  position: fixed;
+  color: grey;
+  right: 10px;
+  bottom: 90px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  cursor: pointer;
+`;
 
 const ScrollToTop = () => {
   const [visible, setVisible] = useState(false);
@@ -26,10 +41,13 @@ const ScrollToTop = () => {
   return (
     <>
       {visible && (
-        <div className="back-to-top animate__animated animate__fadeIn animate__fast" onClick={scrollTopHandler}>
-          <img src={caretUp} height="15px" alt="Back to Top" />
+        <BackToTopWidget
+          className="back-to-top animate__animated animate__fadeIn animate__fast"
+          onClick={scrollTopHandler}
+        >
+          <img src={caretUp} height="11px" alt="" />
           Back to Top
-        </div>
+        </BackToTopWidget>
       )}
     </>
   );
