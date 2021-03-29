@@ -8,7 +8,7 @@ import Login from "./components/Login/Login";
 import QuickTopup from "./components/Topup/QuickTopup";
 import Signup from "./components/Signup/Signup";
 import Loan from "./components/Loan/Loan";
-import Admin from "./pages/AdminLayout";
+import Admin from "./pages/Admin/Admin";
 
 // We want the entire app to be able to subscribe to App
 

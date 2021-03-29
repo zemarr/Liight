@@ -47,7 +47,7 @@ const Navbar = ({ lightBg }) => {
     showButton(); // The showButton method is fired and tracked by the state
   }, []);
 
-  window.addEventListener("resize", showButton); // add an event listener to listen for window resize, any time the resize action is carried the showButton function will run.
+  window.addEventListener("resize", showButton); // add an event listener to listen for window resize, any time the resize action is carried out, showButton will fire.
 
   return (
     <>
