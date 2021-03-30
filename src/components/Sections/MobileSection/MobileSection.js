@@ -21,10 +21,10 @@ const MobileApp = ({ sectionHeading, sectionSubHeading }) => {
           <SectionSubHeading>{sectionSubHeading}</SectionSubHeading>
           <MobileRow>
             <MobileColumn vertical>
-              <img src={GooglePlay} width="100%" height='67px' alt="App on Googleplay" />
+              <img src={GooglePlay} width="100%" height='47px' alt="App on Googleplay" />
             </MobileColumn>
             <MobileColumn vertical>
-              <img src={AppStore} width="100%" height='67px' alt="App on Appstore" />
+              <img src={AppStore} width="100%" height='47px' alt="App on Appstore" />
             </MobileColumn>
           </MobileRow>
         </Container>

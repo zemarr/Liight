@@ -13,7 +13,7 @@ export const MobileRow = styled.div`
   display: flex;
   /* flex-wrap: wrap; */
   min-width: 290px;
-  max-width: 450px;
+  max-width: 350px;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
