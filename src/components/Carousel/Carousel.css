@@ -1,6 +1,6 @@
-.slick-track {
+/* .slick-track {
   height: calc(100vh - 12vh);
-}
+} */
 
 .slick-next::before {
   content: none;
@@ -47,7 +47,6 @@
   border: 0;
   outline: none;
   background: transparent;
-  
   display: none;
 }
 
@@ -104,67 +103,4 @@
   height: 30px;
   width: 30px;
   display: none;
-}
-
-.carousel-item {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background-color: violet;
-}
-
-.slide1 {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
-    url(../../img/brighterside.jpeg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(100vh - 16vh);
-  width: 100vw;
-}
-
-.slide2 {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
-    url(../../img/247.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(100vh - 16vh);
-  width: 100vw;
-}
-
-.slide3 {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
-    url(../../img/securepayment.jpeg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(100vh - 16vh);
-  width: 100vw;
-}
-
-.slide4 {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
-    url(../../img/shoppingcart.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(100vh - 16vh);
-  width: 100vw;
 }

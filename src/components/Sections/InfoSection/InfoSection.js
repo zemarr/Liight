@@ -24,6 +24,7 @@ import ImgLoyalty from "../../../img/medal.svg";
 import ImgUpdate from "../../../img/update.svg";
 
 const InfoSection = ({
+  lightBg,
   sectionHeading,
   img247Heading,
   img247Text,
@@ -38,7 +39,7 @@ const InfoSection = ({
 }) => {
   return (
     <>
-      <StyledSection viewPort>
+      <StyledSection viewPort mediumPaddingTop lightBg={lightBg}>
         <Container centered>
           <SectionHeading bold>{sectionHeading}</SectionHeading>
           <ContainerFluid marginTop>

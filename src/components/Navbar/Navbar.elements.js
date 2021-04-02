@@ -4,6 +4,14 @@ import styled from "styled-components";
 // font-family: 'PT Sans', sans-serif;
 // font-family: 'Roboto', sans-serif;
 
+export const StyledHeader = styled.header`
+  background: #fff;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 300;
+`;
+
 export const StyledNav = styled.nav`
   display: flex;
   align-items: center;
@@ -11,7 +19,7 @@ export const StyledNav = styled.nav`
   flex-wrap: wrap;
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
-  color: #fff;
+  color: #333;
 `;
 
 export const MobileIcon = styled.div`
@@ -51,7 +59,7 @@ export const NavMenu = styled.div`
         : "-100%"}; //we destructured an aobject to use click to take the value of click state we created in the main component. click will toggle the left position of itself between 0 and 100% when click is true or false.
     opacity: 1;
     transition: all 0.5s ease;
-    background: #24103a;
+    background: ${({ lightBg }) => (lightBg ? "#fff" : "#333")};
   }
 `;
 export const NavItem = styled.div`
@@ -60,11 +68,8 @@ export const NavItem = styled.div`
   border-bottom: 2px solid transparent;
   transition: all 0.5s ease;
   padding: 0 1rem;
+  color: ${({ lightBg }) => (lightBg ? "#333" : "#fff")};
 
-  /* &:hover {
-    border-bottom: 2px solid #fff;
-    transition: all 0.5s ease;
-  } */
 
   @media screen and (max-width: 768px) {
     height: 60px;
@@ -79,21 +84,21 @@ export const NavItem = styled.div`
 `;
 
 export const NavLinks = styled(Link)`
-  color: #fff;
+  color: inherit;
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 16px;
-  letter-spacing: .7px;
+  letter-spacing: 0.7px;
   height: 100%;
   transition: all 0.3s ease;
 
   &:hover {
-    color: #FECA03;
+    color: #FF9100;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
   }
 
   @media screen and (max-width: 768px) {
@@ -101,7 +106,7 @@ export const NavLinks = styled(Link)`
     padding: 2rem;
     width: 100%;
     display: table;
-    letter-spacing: .9px;
+    letter-spacing: 0.9px;
     transition: all 0.3s ease;
   }
 `;
@@ -154,28 +159,27 @@ export const NavButton = styled.button`
   background: ${({ primary }) => (primary ? "#fff" : "transparent")};
   background: ${({ secondary }) => (secondary ? "#2784C6" : "")};
   white-space: nowrap;
-  padding: ${({ big }) => (big ? "20px 64px" : "15px 17px")};
+  padding: ${({ big }) => (big ? "20px 64px" : "12px 17px")};
   padding: ${({ noPad }) => (noPad ? "0" : "")};
   margin-right: ${({ spaceMargin }) => (spaceMargin ? "17px" : "")};
-  color: ${({ primary }) => (primary ? "#2f0743" : "#fff")};
-  font-size: ${({ fontBig }) => (fontBig ? "18px" : "15px")};
-  letter-spacing: .7px;
-  font-weight: 300;
+  color: ${({ lightBg }) => (lightBg ? "#333" : "#fff")};
+  font-size: ${({ fontBig }) => (fontBig ? "18px" : "14px")};
+  letter-spacing: 0.7px;
+  font-weight: 400;
   line-height: 16px;
   outline: none;
-  border: solid 1px #fff;
+  border: solid 1px ${({ lightBg }) => (lightBg ? "#333" : "#fff")};
   cursor: pointer;
-  transition: all 0.3s ease-out;
+  transition: 0.3s all;
 
   &:focus {
     outline: ${({ noOutline }) => (noOutline ? "none" : "none !important")};
     border: ${({ noOutline }) => (noOutline ? "none !important" : "")};
   }
   &:hover {
-    transition: all 0.3s ease-out;
-    color: #2f0743;
-    background: #fff;
-    /* background: ${({ primary }) => (primary ? "#0467fb" : "#4b59f7")}; */
+    transition: 0.1s all;
+    color: #ff9100;
+    background: #333;
   }
 
   @media screen and (max-width: 768px) {

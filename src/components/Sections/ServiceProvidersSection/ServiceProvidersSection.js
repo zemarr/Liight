@@ -18,31 +18,31 @@ import etransact from "../../../img/Etranzact.svg";
 import ekedc from "../../../img/ekedc.svg";
 import interswitch from "../../../img/Interswitch.svg";
 
-const ServiceProvidersSection = () => {
+const ServiceProvidersSection = ({ lightBg }) => {
   return (
     <>
-      <StyledSection>
+      <StyledSection mediumPaddingTop paddingBottom lightBg={lightBg}>
         <Container centered>
           <SectionHeading bold>SERVICE PROVIDERS</SectionHeading>
           <ContainerFluid marginTop>
             <ServiceRow>
               <ServiceColumn vertical>
-                <ImgWrapper primary padded>
+                <ImgWrapper padded>
                   <ServiceImg src={ie} alt="" />
                 </ImgWrapper>
               </ServiceColumn>
               <ServiceColumn vertical>
-                <ImgWrapper primary padded>
+                <ImgWrapper padded>
                   <ServiceImg src={ekedc} alt="" />
                 </ImgWrapper>
               </ServiceColumn>
               <ServiceColumn vertical>
-                <ImgWrapper primary padded>
+                <ImgWrapper padded>
                   <ServiceImg src={etransact} alt="" />
                 </ImgWrapper>
               </ServiceColumn>
               <ServiceColumn vertical>
-                <ImgWrapper primary padded>
+                <ImgWrapper padded>
                   <ServiceImg src={interswitch} alt="" />
                 </ImgWrapper>
               </ServiceColumn>

@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body { 
-  background: #fafafa;
+  background: #fff;
 }
 
 a {
@@ -29,7 +29,7 @@ p {
 export const Container = styled.div`
   width: 100%;
   max-width: 1100px;
-  height: ${({ fullScreen }) => (fullScreen ? "100vh" : "")};
+  height: ${({ fullScreen }) => (fullScreen ? "100vh" : "inherit")};
   margin: 0 auto;
   position: relative;
   /* transform: ${({ centered }) => (centered ? "translateY(50%)" : "")}; */
@@ -56,14 +56,13 @@ export const ContainerFluid = styled.div`
 
 export const NavLogo = styled(Link)`
   color: #fff;
-  justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
   display: flex;
   align-items: center;
+  justify-content: center;
+  justify-self: flex-start;
   &:hover {
     color: #fff;
     text-decoration: none;
@@ -71,15 +70,16 @@ export const NavLogo = styled(Link)`
 `;
 export const NavIcon = styled.img`
   margin-right: 0.5rem;
-  height: 55px;
+  height: 60px;
   width: auto;
+  image-rendering: optimizeQuality;
 `;
 export const Button = styled.button`
   border-radius: 4px;
   background: ${({ primary }) => (primary ? "#fff" : "transparent")};
   background: ${({ secondary }) => (secondary ? "#2784C6" : "")};
   white-space: nowrap;
-  padding: ${({ big }) => (big ? "20px 64px" : "15px 17px")};
+  padding: ${({ big }) => (big ? "20px 64px" : "13px 17px")};
   padding: ${({ noPad }) => (noPad ? "0" : "")};
   margin-right: ${({ spaceMargin }) => (spaceMargin ? "17px" : "")};
   color: ${({ primary }) => (primary ? "#2f0743" : "#fff")};
@@ -109,13 +109,16 @@ export const Button = styled.button`
 `;
 
 export const StyledSection = styled("section")`
-  background: ${({ primary }) => (primary ? "#24103A" : "transparent")};
+  background: ${({ lightBg }) => (lightBg ? "" : "#333")};
+  background: ${({ primary }) => (primary ? "#eaeaea" : "#fff")};
   padding-top: ${({ mediumPaddingTop }) =>
     mediumPaddingTop ? "100px" : "50px"};
   padding-bottom: ${({ paddingBottom }) => (paddingBottom ? "100px" : "50px")};
-  /* color: rgba(8, 121, 201, 0.96); */
+  padding-bottom: ${({ noPaddingBottom }) =>
+    noPaddingBottom ? "0px" : "50px"};
+  padding: ${({ noPadding }) => (noPadding ? "0" : "")};
   position: ${({ relative }) => (relative ? "relative" : "")};
-  height: ${({ ViewPort }) => (ViewPort ? "calc(100vh - 20vh)" : "")};
+  height: ${({ ViewPort }) => (ViewPort ? "calc(100vh - 10vh)" : "")};
   height: ${({ fullViewPort }) => (fullViewPort ? "100vh" : "")};
 
   @media screen and (max-width: 768px) {
@@ -177,7 +180,6 @@ export const SectionHeading = styled.h4`
     position: absolute;
     bottom: 0;
     left: 10px;
-    z-index: -1;
   }
 
   @media screen and (max-width: 320px) {
@@ -198,6 +200,12 @@ export const Input = styled.input`
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+`;
+
+export const Hr = styled.div`
+  border-top: solid 0.5px #d6d6d6;
+  width: ${({ halfWidth }) => (halfWidth ? "30%" : "100%")};
+  margin: 0 auto;
 `;
 
 export default GlobalStyle;

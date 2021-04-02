@@ -22,6 +22,7 @@ export const FooterColumn = styled.div`
   flex-basis: 18%;
   flex-direction: ${({ vertical }) => (vertical ? "column" : "")};
   position: ${({ floater }) => (floater ? "absolute" : "relative")};
+  color: inherit;
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
@@ -34,7 +35,7 @@ export const FooterColumn = styled.div`
 
 export const ImgWrapper = styled.div`
   width: 100%;
-  height: 100px;
+  height: 80px;
   overflow: hidden;
   position: ${({ floating }) => (floating ? "relative" : "")};
   padding: ${({ padded }) => (padded ? ".5rem" : "")};
@@ -55,7 +56,7 @@ export const FooterLogo = styled.img`
   vertical-align: middle;
   display: inline-block;
   height: 100%;
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
   margin-bottom: ${({ marginBottom }) => (marginBottom ? "30px" : "")};
   transition: all 0.1s cubic-bezier(0.45, 0, 0, 1.01);
 
@@ -84,9 +85,9 @@ export const FooterLogo = styled.img`
 `;
 
 export const Copyright = styled.span`
-  font-size: 0.8rem;
+  font-size: 12px;
   letter-spacing: .7px;
-  color: #fefe;
+  color: inherit;
 `;
 
 export const FooterLinksWrapper = styled.div`
@@ -95,30 +96,30 @@ export const FooterLinksWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* padding: 24px 0; */
-  color: #fff;
+  color: ${({lightBg}) => (lightBg ? "#333" : "#fff")};
 `;
 export const FooterSubHeading = styled.p`
   margin-bottom: 16px;
-  color: #fff;
-  font-weight: 500;
-  font-size: 18px;
+  color: inherit;
+  font-weight: 600;
+  font-size: 17px;
   letter-spacing: .7px;
 `;
 
 export const FooterLinksItem = styled(Link)`
   text-decoration: none;
   margin-bottom: 0.5rem;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   letter-spacing: .7px;
-  color: #fff;
+  color: inherit;
   margin-right: 15px;
+  transition: 0.3s ease-out;
 
   &:hover {
-    transition: 0.3s ease-out;
+    transition: 0.1s ease-out;
     text-decoration: none;
-    color: #FECA03;
+    color: #FF9100;
   }
 `;
 export const SocialMediaWrapper = styled.div`
@@ -135,15 +136,15 @@ export const SocialMediaWrapper = styled.div`
 export const FooterMailTo = styled.a`
   text-decoration: none;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: inherit;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: .7px;
 
   &:hover {
     transition: 0.3s ease-out;
     text-decoration: none;
-    color: #FECA03;
+    color: #FF9100;
   }
 `;
 

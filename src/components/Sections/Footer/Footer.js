@@ -14,13 +14,14 @@ import {
   SocialsLogo,
   FooterMailTo,
 } from "./Footer.elements";
-import footerLogo from "../../../img/emblem.png";
+import footerLogo from "../../../img/Light-white.png";
 
 import facebookLogo from "../../../img/facebook.svg";
 import twitterLogo from "../../../img/twitter.svg";
 import instagramLogo from "../../../img/instagram.svg";
 
 const Footer = ({
+  lightBg,
   footerLearn,
   learnLink1,
   learnLink2,
@@ -31,24 +32,24 @@ const Footer = ({
 }) => {
   return (
     <>
-      <StyledSection primary mediumPaddingTop>
+      <StyledSection primary mediumPaddingTop lightBg={lightBg}>
         <Container>
           <FooterRow>
             <FooterColumn vertical>
-              <ImgWrapper padded>
+              <ImgWrapper>
                 <FooterLogo src={footerLogo} alt="" />
               </ImgWrapper>
               <Copyright>&copy;2021 All rights reserved</Copyright>
             </FooterColumn>
             <FooterColumn>
-              <FooterLinksWrapper>
+              <FooterLinksWrapper lightBg={lightBg}>
                 <FooterSubHeading>{footerLearn}</FooterSubHeading>
                 <FooterLinksItem to="/blog">{learnLink1}</FooterLinksItem>
                 <FooterLinksItem to="/faqs">{learnLink2}</FooterLinksItem>
               </FooterLinksWrapper>
             </FooterColumn>
             <FooterColumn>
-              <FooterLinksWrapper>
+              <FooterLinksWrapper lightBg={lightBg}>
                 <FooterSubHeading>{footerLegal}</FooterSubHeading>
                 <FooterLinksItem to="/terms-of-use">
                   {legalLink1}
@@ -59,7 +60,7 @@ const Footer = ({
               </FooterLinksWrapper>
             </FooterColumn>
             <FooterColumn>
-              <FooterLinksWrapper>
+              <FooterLinksWrapper lightBg={lightBg}>
                 <FooterSubHeading>{footerContact}</FooterSubHeading>
                 <FooterMailTo href="mailto: hello@Liight.com.ng">
                   hello@Liight.com.ng

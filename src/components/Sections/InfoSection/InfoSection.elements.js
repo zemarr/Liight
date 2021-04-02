@@ -31,7 +31,7 @@ export const InfoColumn = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  height: 270px;
+  max-height: 300px;
   padding: 25px;
   border-radius: 15px;
   display: flex;
@@ -44,7 +44,7 @@ export const ContentWrapper = styled.div`
 
 export const ImgWrapper = styled.div`
   width: 55px;
-  height: 55px;
+  max-height: 55px;
   overflow: hidden;
   position: ${({ floating }) => (floating ? "relative" : "")};
   padding: ${({ padded }) => (padded ? ".5rem" : "")};

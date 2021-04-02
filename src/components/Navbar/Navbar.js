@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, NavIcon, NavLogo } from "../../GlobalStyles";
+import { Container, NavIcon, NavLogo } from "../../GlobalStyles";
 
-import Logo from "../../img/emblem.png";
-import CloseMenuIcon from "../../img/menuCloseIconWhite.svg";
-import MenuIcon from "../../img/menuIconWhite.svg";
+import Logo from "../../img/Light-white.png";
+import CloseMenuIcon from "../../img/close-black.svg";
+import MenuIcon from "../../img/hamburger-black.svg";
 import { Img } from "../../GlobalStyles";
-import { StyledHeader } from "./Header";
 import {
   MobileIcon,
   NavButtonLink,
@@ -14,6 +13,7 @@ import {
   NavItemWrapper,
   NavLinks,
   NavMenu,
+  StyledHeader,
   StyledNav,
   NavButton,
 } from "./Navbar.elements";
@@ -60,15 +60,15 @@ const Navbar = ({ lightBg }) => {
             <NavLogo to="/">
               <NavIcon src={Logo} alt="Liight" />
             </NavLogo>
-            <NavMenu onClick={handleClick} click={click} lightBg={lightBg}>
+            <NavMenu lightBg={lightBg} onClick={handleClick} click={click}>
               {" "}
               {/* Here we introduced a "click" method to pass the click state as props. This way the component's styling can have access to the value of click state. */}{" "}
               {/* Here we introduced a "click" method to pass the click state as props. This way the component's styling can have access to the value of click state. */}
               <NavItemWrapper>
-                <NavItem>
+                <NavItem lightBg={lightBg}>
                   <NavLinks to="/loan">Loan</NavLinks>
                 </NavItem>
-                <NavItem>
+                <NavItem lightBg={lightBg}>
                   <NavLinks to="/topup">Quick Top-up</NavLinks>
                 </NavItem>
 
@@ -76,15 +76,20 @@ const Navbar = ({ lightBg }) => {
                   {button ? (
                     <>
                       <NavButtonLink to="/login">
-                        <NavButton>Log in</NavButton>
+                        <NavButton lightBg={lightBg}>Log in</NavButton>
                       </NavButtonLink>
                     </>
                   ) : (
                     <>
                       <NavButtonLink to="/login">
-                        <Button primary big fontBig fullWidth>
+                        <NavButton
+                          lightBg={lightBg}
+                          big
+                          fontBig
+                          fullWidth
+                        >
                           Log in
-                        </Button>
+                        </NavButton>
                       </NavButtonLink>
                     </>
                   )}

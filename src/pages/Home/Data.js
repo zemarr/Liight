@@ -1,5 +1,12 @@
-export const NavbarObj = {};
+export const NavbarObj = {
+  lightBg: true,
+};
+export const HeroObj = {
+  lightBg: true,
+  slide1: require('../../img/undraw_dynamic_night.svg')
+};
 export const InfoSectionObj = {
+  lightBg: true,
   sectionHeading: "WHY US",
   img247Heading: "24HRS Support",
   img247Text:
@@ -14,11 +21,16 @@ export const InfoSectionObj = {
   ImgUpdateHeading: "Stay Updated",
   ImgUpdateText: "Get up to date information on power updates in your area.",
 };
+export const ServiceProvidersObj = {
+  lightBg: true,
+};
 export const MobileSectionObj = {
+  lightBg: true,
   sectionHeading: "Get started with Liight today",
   sectionSubHeading: "Download and start buying electricity with ease.",
 };
 export const FooterObj = {
+  lightBg: true,
   footerLearn: "Learn",
   footerLegal: "Legal",
   footerContact: "Contact Us",

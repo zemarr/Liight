@@ -21,7 +21,7 @@ export const ServiceColumn = styled.div`
   flex-basis: 18%;
   flex-direction: ${({ vertical }) => (vertical ? "column" : "")};
   position: ${({ floater }) => (floater ? "absolute" : "relative")};
-  box-shadow: 0 5px 10px -7px rgb(0 0 0 / 34%);
+  /* box-shadow: 0 5px 10px -7px rgb(0 0 0 / 34%); */
 
   @media screen and (max-width: 768px) {
     max-width: 20%;
