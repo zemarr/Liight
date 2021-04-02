@@ -55,13 +55,9 @@ const Header = styled.div`
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
-  const [showBanner, setShowBanner] = useState(false);
+  // const [showBanner, setShowBanner] = useState(false);
 
   // toggle when the banner appears and disappears
-
-  const toggleBanner = () => {
-    setShowBanner(true);
-  };
 
   //  Toggle when the page is scrolled a particular distance
   const toggleVisibility = () => {
@@ -73,13 +69,10 @@ const Home = () => {
     window.addEventListener("scroll", toggleVisibility);
   }, [visible]);
 
-  useEffect(() => {
-    toggleBanner();
-  }, [showBanner]);
   return (
     <>
       <HomeWrapper className="Home-Main">
-        <Header show={showBanner}>
+        <Header show>
           <p>Our commitment remains with you during the COVID-19 Pandemic</p>
         </Header>
         <Navbar {...NavbarObj} />

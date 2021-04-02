@@ -45,7 +45,7 @@ const Navbar = ({ lightBg }) => {
   useEffect(() => {
     // useEffect hook to run on mount of this component
     showButton(); // The showButton method is fired and tracked by the state
-  }, []);
+  }, [button]);
 
   window.addEventListener("resize", showButton); // add an event listener to listen for window resize, any time the resize action is carried out, showButton will fire.
 
