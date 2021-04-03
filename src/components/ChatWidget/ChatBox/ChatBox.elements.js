@@ -30,7 +30,7 @@ export const ChatHeadSection = styled.section`
   align-items: center;
   margin: 0;
   padding: 20px;
-  background-color: #fbca1b;
+  background-color: #FF9A16;
   color: #fff;
   border: none;
 `;
@@ -91,7 +91,7 @@ export const FormInput = styled.input`
 `;
 
 export const SendMessageButton = styled.button`
-  background: ${({ primary }) => (primary ? "#FECA03" : "transparent")};
+  background: ${({ primary }) => (primary ? "#FF9A16" : "transparent")};
   background: ${({ secondary }) => (secondary ? "#2784C6" : "")};
   background: ${({ disabled }) => (disabled ? "#d8c065" : "")};
   white-space: nowrap;
@@ -128,7 +128,7 @@ export const ChatBubble = styled.div`
 `;
 
 export const UserAlias = styled.span`
-  color: #e2aa01;
+  color: #FF9A16;
   font-weight: 500;
 `;
 export const UserMessage = styled.span`

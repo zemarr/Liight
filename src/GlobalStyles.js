@@ -176,7 +176,7 @@ export const SectionHeading = styled.h4`
     height: 3px;
     width: 100%;
     transform: skew(45deg, 0deg);
-    background: #fbca1b;
+    background: #ff9a16;
     position: absolute;
     bottom: 0;
     left: 10px;

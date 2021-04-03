@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import caretUp from "../img/backtotop.svg";
+import caretUp from "../img/backtotop-alt.svg";
 
 export const BackToTopWidget = styled.div`
   position: fixed;

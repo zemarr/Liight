@@ -5,13 +5,13 @@ export const ChatWidgetWrapper = styled.div`
   display: block;
   width: ${({ backDrop }) => (backDrop ? "100%" : "")};
   height: -webkit-fill-available;
-  background-color: #000000a1;
+  background-color: #00000045;
   transition: 0.8s ease-in-out;
 `;
 
 export const ChatButton = styled.button`
   border-radius: 4px;
-  background: ${({ primary }) => (primary ? "#fff" : "transparent")};
+  background: ${({ primary }) => (primary ? "#FF9A16" : "transparent")};
   background: ${({ secondary }) => (secondary ? "#2784C6" : "")};
   white-space: nowrap;
   padding: ${({ big }) => (big ? "14px 64px" : "8px 17px")};
@@ -31,6 +31,7 @@ export const ChatButton = styled.button`
   cursor: pointer;
   opacity: 1;
   z-index: 900;
+  transition: 0.2s ease-in-out;
 
   &:focus {
     outline: ${({ noOutline }) => (noOutline ? "none" : "none !important")};
@@ -43,8 +44,9 @@ export const ChatButton = styled.button`
 `;
 
 export const Img = styled.img`
-  background-color: ${({ background }) => (background ? "#ffc107" : "")};
+  background-color: ${({ background }) => (background ? "#FF9A16" : "")};
   border-radius: 50%;
   box-shadow: 0 5px 10px -7px rgb(0 0 0 / 34%);
-  transition: 0.4s ease-in-out;
+  transition: 0.2s ease-in-out;
+  padding: ${({ padded }) => (padded ? "10px" : "0")};
 `;

@@ -80,8 +80,9 @@ export const HeroButtonWrapper = styled.div`
 export const IntroText = styled.span`
   color: #ff7810;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.7px;
+  margin-bottom: 15px;
 `;
 export const CallForHelp = styled.span`
   color: #ff7810;

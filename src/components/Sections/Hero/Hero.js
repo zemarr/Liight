@@ -24,9 +24,9 @@ const Hero = ({ lightBg }) => {
               <CallToAction lightBg={lightBg} className="callToAction">
                 <IntroText>What would you like to do?</IntroText>
                 <h1>
-                  Energy <TopUpText>top-up</TopUpText>
+                  Energy <TopUpText>Top-up</TopUpText>
                   <br />
-                  Request a <LoanText>loan</LoanText>
+                  Request a <LoanText>Loan</LoanText>
                 </h1>
                 {/* <h1></h1> */}
                 <HeroButtonWrapper>

@@ -1,6 +1,6 @@
 import React, { useState } from "react"; // import useContext
 
-import chatIcon from "../../img/support.svg";
+import chatIcon from "../../img/support-alt.svg";
 import closeChat from "../../img/closeChat.svg";
 import { ChatBox } from "./ChatBox/ChatBox";
 import { ChatButton, ChatWidgetWrapper, Img } from "./ChatWidget.elements";
@@ -24,9 +24,10 @@ const ChatWidget = () => {
   return (
     <>
       <ChatWidgetWrapper backDrop={showWidget}>
-        <ChatButton onClick={toggleShowWidget}>
+        <ChatButton primary onClick={toggleShowWidget}>
           {showWidget ? (
             <Img
+              padded
               src={closeChat}
               alt=""
               background

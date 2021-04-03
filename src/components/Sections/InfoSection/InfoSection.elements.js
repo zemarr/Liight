@@ -48,7 +48,7 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   position: ${({ floating }) => (floating ? "relative" : "")};
   padding: ${({ padded }) => (padded ? ".5rem" : "")};
-  background-color: ${({ primary }) => (primary ? "#fbca1b" : "")};
+  background-color: ${({ primary }) => (primary ? "#FF9A16" : "")};
   border-radius: 6px;
   display: flex;
   align-items: center;
