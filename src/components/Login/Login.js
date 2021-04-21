@@ -10,16 +10,19 @@ import {
   Img,
   SectionHeading,
   FormWrapper,
-  FormHead,
+  HeadLogo,
   CompleteForm,
   LoginButton,
   SignupButton,
   Exit,
   FormGroup,
   FormAssist,
+  ErrorLabel,
+  Label,
 } from "../Login/Login.elements";
 
 import ExitIcon from "../../img/close.svg";
+import Logo from "../../img/Light-white.png";
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -105,40 +108,36 @@ const Login = (props) => {
         fullViewPort
         className="login animate__animated animate__fadeIn animate__faster"
       >
-        <Container fullScreen noPadding>
+        <Container fullScreen>
           <LoginRow>
-            <LoginColumn className="animate__animated animate__fadeIn animate__fast">
+            <Exit to="/">
+              <Img src={ExitIcon} alt="" className="exit" />
+            </Exit>
+            <LoginColumn
+              vertical
+              className="animate__animated animate__fadeIn animate__fast"
+            >
+              <HeadLogo>
+                <img src={Logo} height="80px" width="130px" alt="" />
+              </HeadLogo>
+
+              <SectionHeading>SIGN IN</SectionHeading>
               <FormWrapper className="formWrapper">
-                <FormHead className="formHead">
-                  <SectionHeading>LOG IN</SectionHeading>
-                  <Exit to="/">
-                    <Img src={ExitIcon} alt="" className="exit" />
-                  </Exit>
-                </FormHead>
-                <hr />
                 <form onSubmit={handleSubmit}>
-                  <FormGroup className="form-group">
+                  <FormGroup>
+                    <Label>USERNAME</Label>
                     <Input
                       name="username"
                       type="text"
-                      className="form-control form-control-md"
+                      // className="form-control form-control-md"
                       id="username"
                       placeholder="Username"
                       onChange={handleUsername}
                     />
-                    <span
-                      style={{
-                        display: "block",
-                        marginBottom: "15px",
-                        color: "#ad0404",
-                        fontSize: "11px",
-                        paddingTop: "10px",
-                      }}
-                    >
-                      {error.nameError}
-                    </span>
+                    <ErrorLabel>{error.nameError}</ErrorLabel>
                   </FormGroup>
-                  <FormGroup className="form-group">
+                  <FormGroup>
+                    <Label>PASSWORD</Label>
                     <Input
                       name="password"
                       type="password"
@@ -147,52 +146,29 @@ const Login = (props) => {
                       placeholder="Password"
                       onChange={handlePassword}
                     />
-                    <span
-                      style={{
-                        display: "block",
-                        marginBottom: "10px",
-                        color: "#ad0404",
-                        fontSize: "11px",
-                        paddingTop: "10px",
-                      }}
-                    >
+                    <ErrorLabel>
                       {error.passwordError}
-                    </span>
+                      {error.accountError}
+                    </ErrorLabel>
                   </FormGroup>
-                  <span
-                    style={{
-                      display: "block",
-                      marginBottom: "10px",
-                      color: "#ad0404",
-                      fontSize: "11px",
-                    }}
-                  >
-                    {error.accountError}
-                  </span>
-                  <FormAssist className="form-assist">
-                    <button onClick={(e) => e.preventDefault()}>
-                      Can't access your account?
-                    </button>
-                    <button onClick={(e) => e.preventDefault()}>
-                      Forgot Password?
-                    </button>
-                  </FormAssist>
+
                   <CompleteForm>
                     {" "}
                     <LoginButton
                       className="signin-btn p-3"
                       onClick={handleSubmit}
                     >
-                      Login
+                      LOGIN
                     </LoginButton>
-                    <Link to="/sign-up">
-                      <SignupButton className="signup-btn">
-                        Sign Up
-                      </SignupButton>
-                    </Link>
                   </CompleteForm>
                 </form>
               </FormWrapper>
+              <FormAssist className="form-assist">
+                <p>
+                  Don't have an account? <Link to="/sign-up" style={{fontWeight: "500"}}>Sign Up</Link>
+                </p>
+                <p>Forgot Password?</p>
+              </FormAssist>
             </LoginColumn>
           </LoginRow>
         </Container>

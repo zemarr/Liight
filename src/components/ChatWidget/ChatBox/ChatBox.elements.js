@@ -105,7 +105,6 @@ export const SendMessageButton = styled.button`
   border: none;
   border-radius: 50%;
   box-shadow: 0 0 inset;
-  /* background-color: skyblue; */
   cursor: pointer;
 
   &:focus {

@@ -4,12 +4,12 @@ import LoginBackground from "../../img/loginbackground.svg";
 
 export const StyledSection = styled("section")`
   background: ${({ primary }) => (primary ? "#24103A" : "transparent")};
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
     ),
-    url(${LoginBackground});
+    url(${LoginBackground}); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -30,31 +30,32 @@ export const StyledSection = styled("section")`
 
 export const LoginRow = styled.div`
   height: 100%;
-  justify-content: center !important;
+  /* justify-content: center !important; */
   display: flex !important;
-  align-items: center !important;
+  /* align-items: center !important; */
 
   @media screen and (max-width: 420px) {
   }
 `;
 
 export const LoginColumn = styled.div`
-  margin: 0 auto;
-  margin-bottom: 1rem;
   padding-right: 0;
   padding-left: 0;
+  padding-top: 40px;
+  display: flex;
   flex: 1;
-  max-width: 40%;
-  flex-basis: 40%;
+  max-width: 43%;
+  flex-basis: 43%;
   flex-direction: ${({ vertical }) => (vertical ? "column" : "")};
+  justify-content: ${({ vertical }) => (vertical ? "start" : "center")};
+  align-items: center;
   position: ${({ floater }) => (floater ? "absolute" : "relative")};
-  height: fit-content;
+  margin: 0 auto;
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
     flex-basis: 100%;
     display: flex;
-    justify-content: center;
   }
 `;
 
@@ -81,6 +82,8 @@ export const SectionHeading = styled.h4`
   width: fit-content;
   align-items: center;
   position: relative;
+  font-size: 20px;
+  margin-bottom: 25px;
 
   @media screen and (max-width: 320px) {
     font-size: 21px;
@@ -89,11 +92,9 @@ export const SectionHeading = styled.h4`
 
 export const FormWrapper = styled.div`
   background-color: rgba(255, 255, 255, 0.36);
-  padding: 60px 60px;
-  box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
-  -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
-  -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.59);
-  border-radius: 8px;
+  padding: 40px 35px;
+  box-shadow: 0 0 2px #00000052;
+  border-radius: 4px;
 
   @media screen and (max-width: 768px) {
     padding: 30px 20px;
@@ -102,57 +103,75 @@ export const FormWrapper = styled.div`
     width: 100%;
   }
 `;
-export const FormHead = styled.div`
-  height: 50px;
+export const HeadLogo = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    /* position: relative;
+    top: 0; */
+  }
 `;
 export const Exit = styled(Link)`
-  width: 20px;
+  width: 35px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  right: 0;
+  top: 50px;
+
+  @media screen and (max-width: 1200px) {
+    margin-right: 50px;
+  }
+  @media screen and (max-width: 425px) {
+    margin-right: 25px;
+    width: 30px;
+  }
 `;
 export const FormGroup = styled.div`
-  input {
-    box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
-    -webkit-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
-    -moz-box-shadow: 9px 9px 19px -5px rgba(0, 0, 0, 0.233);
-    display: block;
-    width: 100%;
-    height: 45px;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
+  min-width: 245px;
+`;
+export const Label = styled.label`
+  font-weight: 600;
+  font-size: 15px;
+`;
+export const ErrorLabel = styled.span`
+  display: block;
+  margin-bottom: 5px;
+  color: #ad0404;
+  font-size: 11px;
+  padding-top: 10px;
 `;
 export const FormAssist = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin-top: 15px;
 
-  button {
+  p {
     font-family: "Roboto", sans-serif;
-    display: block;
+    /* display: block; */
     padding: 0;
-    margin-right: 10px;
+    margin-bottom: 5px;
     font-weight: 400;
-    border: none;
-    background-color: transparent;
     font-size: 13px;
-    text-align: left;
-    color: #6ccce1;
+    color: #a8a8a8;
+
+    a {
+      color: #a8a8a8;
+    }
 
     @media screen and (max-width: 425px) {
-      font-size: 11px;
+      /* font-size: 13px; */
     }
   }
 `;
@@ -170,12 +189,17 @@ export const CompleteForm = styled.div`
 `;
 export const LoginButton = styled.button`
   font-family: "Roboto", sans-serif;
-  background-color: #54965a;
-  font-weight: 400;
-  font-size: 17px;
+  background-color: #ff902e;
+  font-weight: 500;
+  font-size: 16px;
   border: none;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 3px;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 425px) {
     font-weight: 400;

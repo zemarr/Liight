@@ -32,7 +32,6 @@ export const Container = styled.div`
   height: ${({ fullScreen }) => (fullScreen ? "100vh" : "inherit")};
   margin: 0 auto;
   position: relative;
-  /* transform: ${({ centered }) => (centered ? "translateY(50%)" : "")}; */
 
   @media screen and (max-width: 1235px) {
     padding: ${({ noPadding }) => (noPadding ? "" : "0 1.0875rem")};
@@ -187,9 +186,11 @@ export const SectionHeading = styled.h4`
   }
 `;
 export const Input = styled.input`
+  border: solid 1px rgba(0, 0, 0, 16%);
+  border-radius: 5px;
   display: block;
   width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
+  height: 40px;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -197,9 +198,15 @@ export const Input = styled.input`
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border: 1px solid #00000014;
+  border-radius: 3px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ff9f0f75;
+  }
 `;
 
 export const Hr = styled.div`
